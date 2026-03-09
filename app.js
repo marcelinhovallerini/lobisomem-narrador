@@ -72,12 +72,13 @@ async function startNight(){
 startForest();
 
 await speak("Todos fechem os olhos.")
-await wait(3000)
+await wait(1000)
 
 
 if(selectedRoles.werewolf){
 
 howl.play()
+await wait(2000)
 await speak("Lobisomens, acordem e olhem uns para os outros. Se houver apenas um lobisomem, você pode olhar uma carta do centro.")
 await wait(10000)
 
@@ -168,5 +169,6 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
