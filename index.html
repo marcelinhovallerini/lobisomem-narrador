@@ -10,9 +10,9 @@
 
 <h1>🐺 Narrador Werewolf</h1>
 
-<h2>Selecione os personagens</h2>
+<h2 id="roles-title">Selecione os personagens</h2>
 
-<div class="roles">
+<div id="roles-container" class="roles">
 
 <button class="role" onclick="toggleRole(this,'doppelganger')">😶‍🌫️ Doppelganger</button>
 <button class="role" onclick="toggleRole(this,'werewolf')">🐺 Lobisomem</button>
@@ -35,9 +35,16 @@
 
 <br>
 
-<button class="start" onclick="startNight()">🌙 Iniciar Noite</button>
 
-<div id="timer">05:00</div>
+<button id="start-container" class="start" onclick="startNight()">🌙 Iniciar Noite</button>
+<button class="reset" onclick="resetGame()">Reiniciar</button>
+
+<div id="timer-container" style="display:none;">
+
+    <div id="timer-label">Tempo de discussão</div>
+    <div id="timer">05:00</div>
+
+</div>
 
 <audio id="howlSound" src="uivo.mp3"></audio>
 <audio id="forestSound" src="floresta.mp3" loop></audio>

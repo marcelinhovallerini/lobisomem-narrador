@@ -45,20 +45,65 @@ background:#00aa55;
 color:white;
 cursor:pointer;
 
+}
+
+.reset{
+
+padding:20px;
+font-size:22px;
+border:none;
+border-radius:10px;
+background:#FF0000;
+color:white;
+cursor:pointer;
 
 }
 
-.timer{
-font-size:60px;
-font-weight:bold;
+#timer-box{
+width:90%;
+max-width:700px;
+margin:40px auto;
+padding:40px;
 text-align:center;
-margin-top:20px;
-color:white;
-background:#111;
-padding:20px;
-border-radius:10px;
-width:200px;
-margin-left:auto;
-margin-right:auto;
+
+background:linear-gradient(145deg,#111,#000);
+
+border-radius:20px;
+
+border:3px solid #550000;
+
+box-shadow:
+0 0 40px rgba(255,0,0,0.5),
+inset 0 0 25px rgba(255,0,0,0.4);
+}
+
+#timer-label{
+font-size:28px;
+letter-spacing:3px;
+color:#aaa;
+margin-bottom:15px;
+}
+
+#timer{
+font-size:140px;
 font-family:monospace;
+font-weight:bold;
+color:white;
+
+text-shadow:
+0 0 10px rgba(255,0,0,0.6),
+0 0 20px rgba(255,0,0,0.4);
+}
+
+/* últimos 30 segundos */
+
+.timer-warning{
+color:#ff3333;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.08)}
+100%{transform:scale(1)}
 }
