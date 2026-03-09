@@ -71,10 +71,6 @@ return new Promise(resolve=>setTimeout(resolve,ms))
 }
 
 async function startNight(){
-
-howl.play()
-howl.pause()
-howl.currentTime = 0
     
 startForest();
 
@@ -179,6 +175,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
