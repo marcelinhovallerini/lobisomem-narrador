@@ -53,6 +53,39 @@ return new Promise(resolve=>setTimeout(resolve,ms))
 
 }
 
+function iniciarTimerVisual(){
+
+let tempo = 300; // 5 minutos em segundos
+
+const timerEl = document.getElementById("timer");
+
+const intervalo = setInterval(()=>{
+
+let minutos = Math.floor(tempo/60);
+let segundos = tempo % 60;
+
+timerEl.innerText =
+String(minutos).padStart(2,"0") + ":" +
+String(segundos).padStart(2,"0");
+
+tempo--;
+
+if(tempo < 0){
+
+clearInterval(intervalo);
+
+speak("Fim do tempo de discussão.");
+
+setTimeout(()=> speak("Votar em 3"),2000);
+setTimeout(()=> speak("2"),3000);
+setTimeout(()=> speak("1"),4000);
+
+}
+
+},1000);
+
+}
+
 async function startNight(){
 
 forest.currentTime = 0
@@ -158,8 +191,12 @@ await wait(3000)
 
 await speak("Todos acordem. A discussão começa agora.")
 
+iniciarTimerVisual();
+
+
 
 }
+
 
 
 
