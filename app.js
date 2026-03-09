@@ -1,5 +1,14 @@
-const forest1 = new Audio("floresta.mp3")
-const forest2 = new Audio("floresta.mp3")
+let howl
+let forest
+
+window.onload = () => {
+howl = document.getElementById("howlSound")
+forest = document.getElementById("forestSound")
+
+}
+
+const forest1 = new Audio("forest.mp3")
+const forest2 = new Audio("forest.mp3")
 
 forest1.volume = 0.4
 forest2.volume = 0.4
@@ -25,12 +34,6 @@ forest1.addEventListener("ended", () => {
 forest2.addEventListener("ended", () => {
     forest1.play()
 })
-
-}
-let howl
-
-window.onload = () => {
-howl = document.getElementById("howlSound")
 
 }
 
@@ -185,6 +188,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
