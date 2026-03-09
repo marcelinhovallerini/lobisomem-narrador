@@ -1,3 +1,9 @@
+const forest = document.getElementById("forestSound");
+forest.volume = 0.4;
+
+const howl = document.getElementById("howlSound");
+howl.volume = 0.4
+
 const selectedRoles = {}
 
 function toggleRole(button, role){
@@ -46,12 +52,15 @@ return new Promise(resolve=>setTimeout(resolve,ms))
 
 async function startNight(){
 
+forest.play();
+
 await speak("Todos fechem os olhos.")
 await wait(3000)
 
 
 if(selectedRoles.werewolf){
 
+howl.play()
 await speak("Lobisomens, acordem e olhem uns para os outros. Se houver apenas um lobisomem, você pode olhar uma carta do centro.")
 await wait(10000)
 
@@ -139,5 +148,6 @@ await wait(3000)
 
 
 await speak("Todos acordem. A discussão começa agora.")
+
 
 }
