@@ -1,12 +1,22 @@
-let forest
-let howl
+const forest1 = new Audio("forest.mp3")
+const forest2 = new Audio("forest.mp3")
 
-window.onload = () => {
+forest1.volume = 0.4
+forest2.volume = 0.4
 
-forest = document.getElementById("forestSound")
-howl = document.getElementById("howlSound")
+function startForest(){
 
-forest.volume = 0.4
+forest1.play()
+
+forest1.addEventListener("ended", () => {
+    forest2.play()
+})
+
+forest2.addEventListener("ended", () => {
+    forest1.play()
+})
+
+}
 howl.volume = 0.6
 
 }
@@ -59,7 +69,7 @@ return new Promise(resolve=>setTimeout(resolve,ms))
 
 async function startNight(){
 
-forest.play();
+startForest();
 
 await speak("Todos fechem os olhos.")
 await wait(3000)
@@ -158,4 +168,5 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
