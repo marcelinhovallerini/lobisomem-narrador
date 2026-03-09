@@ -54,6 +54,10 @@ return new Promise(resolve=>setTimeout(resolve,ms))
 }
 
 async function startNight(){
+
+forest.currentTime = 0
+forest.volume = 1
+forest.play()
     
 await speak("Todos fechem os olhos.")
 await wait(1000)
@@ -156,6 +160,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
