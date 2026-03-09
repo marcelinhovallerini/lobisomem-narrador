@@ -6,6 +6,16 @@ forest2.volume = 0.4
 
 function startForest(){
 
+try{
+
+await forest1.play()
+
+}catch(e){
+
+console.log("Erro ao iniciar floresta:", e)
+
+}
+
 forest1.play()
 
 forest1.addEventListener("ended", () => {
@@ -72,8 +82,8 @@ return new Promise(resolve=>setTimeout(resolve,ms))
 
 async function startNight(){
     
-startForest();
-
+await startForest()
+await wait(500)
 await speak("Todos fechem os olhos.")
 await wait(1000)
 
@@ -175,6 +185,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
