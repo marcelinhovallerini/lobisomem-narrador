@@ -17,6 +17,10 @@ forest2.addEventListener("ended", () => {
 })
 
 }
+let howl
+
+window.onload = () => {
+howl = document.getElementById("howlSound")
 howl.volume = 0.6
 
 }
@@ -169,6 +173,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
