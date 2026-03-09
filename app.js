@@ -7,26 +7,6 @@ forest = document.getElementById("forestSound")
 
 }
 
-const forest1 = new Audio("floresta.mp3")
-const forest2 = new Audio("floresta.mp3")
-
-forest1.volume = 0.4
-forest2.volume = 0.4
-
-function startForest(){
-
-forest1.play()
-
-forest1.addEventListener("ended", () => {
-    forest2.play()
-})
-
-forest2.addEventListener("ended", () => {
-    forest1.play()
-})
-
-}
-
 const selectedRoles = {}
 
 function toggleRole(button, role){
@@ -178,6 +158,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
