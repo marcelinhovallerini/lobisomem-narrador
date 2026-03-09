@@ -1,8 +1,15 @@
-const forest = document.getElementById("forestSound");
-forest.volume = 0.4;
+let forest
+let howl
 
-const howl = document.getElementById("howlSound");
-howl.volume = 0.4
+window.onload = () => {
+
+forest = document.getElementById("forestSound")
+howl = document.getElementById("howlSound")
+
+forest.volume = 0.4
+howl.volume = 0.6
+
+}
 
 const selectedRoles = {}
 
@@ -151,3 +158,4 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
