@@ -15,16 +15,6 @@ forest2.volume = 0.4
 
 function startForest(){
 
-try{
-
-await forest1.play()
-
-}catch(e){
-
-console.log("Erro ao iniciar floresta:", e)
-
-}
-
 forest1.play()
 
 forest1.addEventListener("ended", () => {
@@ -188,6 +178,7 @@ await speak("Todos acordem. A discussão começa agora.")
 
 
 }
+
 
 
 
