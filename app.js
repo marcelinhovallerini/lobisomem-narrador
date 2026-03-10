@@ -197,6 +197,45 @@ function unlockAudios(){
 }
 
 
+function play(audio){
+
+	if(!audio) return Promise.resolve()
+
+	audioQueue = audioQueue.then(()=>{
+
+		return new Promise(resolve=>{
+
+			audio.pause()
+			audio.currentTime = 0
+
+			const endHandler = () => {
+				audio.removeEventListener("ended", endHandler)
+				resolve()
+			}
+
+			audio.addEventListener("ended", endHandler)
+
+			const p = audio.play()
+
+			if(p !== undefined){
+				p.catch(()=>{
+					resolve()
+				})
+			}
+
+			if(audio.readyState < 2){
+				audio.onloadedmetadata = ()=>{
+					setTimeout(resolve, audio.duration * 1000)
+				}
+			}
+
+		})
+
+	})
+
+	return audioQueue
+
+}
 
 function wait(ms){
 
@@ -238,6 +277,8 @@ function resetGame(){
 async function startNight(){
 
 	unlockAudios()
+
+	await wait(100)
 
 	clearInterval(window.owlInterval)
 	
@@ -462,6 +503,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
