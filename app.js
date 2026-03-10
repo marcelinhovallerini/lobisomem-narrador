@@ -110,14 +110,20 @@ function unlockAudios(){
 
 function play(audio){
 	return new Promise(resolve=>{
+
 		audio.pause()
 		audio.currentTime = 0
 
-		audio.onended = resolve
+		const promise = audio.play()
 
-		audio.play().catch(()=>{
-			resolve()
-		})
+		if(promise !== undefined){
+			promise.then(()=>{
+				audio.onended = resolve
+			}).catch(()=>{
+				resolve()
+			})
+		}
+
 	})
 }
 
@@ -160,12 +166,19 @@ function resetGame(){
 
 async function startNight(){
 
-	forest.play()
+	forest.loop = true
+	forest.volume = 0.6
+	forest.play().catch(()=>{})
 
 	setInterval(() => {
-  		owl.currentTime = 0;
-  		owl.play().catch(()=>{});
-	}, 30000);
+
+	if(owl.paused){
+		owl.currentTime = 0
+		owl.volume = 0.5
+		owl.play().catch(()=>{})
+	}
+
+	},30000)
     
 	await play(begin)
 	await wait(7000)
@@ -405,6 +418,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
