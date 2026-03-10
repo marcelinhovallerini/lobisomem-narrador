@@ -199,9 +199,15 @@ function play(sound){
 			voicePlayer.load()
 
 			const endHandler = () => {
+				clearTimeout(safety)
 				voicePlayer.removeEventListener("ended", endHandler)
 				resolve()
 			}
+
+			const safety = setTimeout(()=>{
+				voicePlayer.removeEventListener("ended", endHandler)
+				resolve()
+			},10000)
 
 			voicePlayer.addEventListener("ended", endHandler)
 
@@ -653,6 +659,7 @@ async function startNight(){
 	await play("vote")
 
 }
+
 
 
 
