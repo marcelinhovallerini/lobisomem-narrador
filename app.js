@@ -12,7 +12,7 @@ let drunk
 window.onload = () => {
 	seer = document.getElementById("seerSound")
 	howl = document.getElementById("howlSound")
-	forest1 = document.getElementById("forestSound")
+	forest = document.getElementById("forestSound")
 	owl = document.getElementById("owlSound")
 	troublemaker = document.getElementById("gigglesSound")
 	insomniac = document.getElementById("yawnSound")
@@ -135,12 +135,11 @@ function resetGame(){
 
 async function startNight(){
 
-	await forest1.play()
+	await forest.play()
 
 	setInterval(() => {
   		owl.currentTime = 0;
-  		owl.play();
-  		owl.volume = 0.3
+  		owl.play().catch(()=>{});
 	}, 30000);
     
 	await begin.play()
@@ -381,6 +380,7 @@ async function startNight(){
 	await vote.play()
 
 }
+
 
 
 
