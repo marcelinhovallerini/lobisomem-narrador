@@ -13,7 +13,6 @@ window.onload = () => {
 	seer = document.getElementById("seerSound")
 	howl = document.getElementById("howlSound")
 	forest1 = document.getElementById("forestSound")
-	forest2 = document.getElementById("forestSound")
 	owl = document.getElementById("owlSound")
 	troublemaker = document.getElementById("gigglesSound")
 	insomniac = document.getElementById("yawnSound")
@@ -137,8 +136,6 @@ function resetGame(){
 async function startNight(){
 
 	await forest1.play()
-	await wait(2000)
-	await forest2.play()
 
 	setInterval(() => {
   		owl.currentTime = 0;
@@ -384,6 +381,7 @@ async function startNight(){
 	await vote.play()
 
 }
+
 
 
 
