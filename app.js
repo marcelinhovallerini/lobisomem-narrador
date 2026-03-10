@@ -1,6 +1,5 @@
 let howl
-let forest1
-let forest2
+let forest
 let owl
 let seer
 let troublemaker
@@ -135,20 +134,20 @@ function resetGame(){
 
 async function startNight(){
 
-	await forest.play()
+	forest.play()
 
 	setInterval(() => {
   		owl.currentTime = 0;
   		owl.play().catch(()=>{});
 	}, 30000);
     
-	await begin.play()
+	begin.play()
 	await wait(7000)
 
 
 	if(selectedRoles.doppelganger){
 
-		await doppelWakeUp.play();
+		doppelWakeUp.play();
 		await wait(16000)
 
 		if(selectedRoles.seer){
@@ -157,7 +156,7 @@ async function startNight(){
 			seer.volume = 0.3
 			seer.play()
 
-			await doppelSeer.play();
+			doppelSeer.play();
 			await wait(15000)
 
 		}
@@ -168,7 +167,7 @@ async function startNight(){
 			robber.volume = 0.5
 			robber.play()
 
-			await doppelRobber.play();
+			doppelRobber.play();
 			await wait(16000)
 
 		}
@@ -179,7 +178,7 @@ async function startNight(){
 			troublemaker.volume = 0.4
 			troublemaker.play()
 
-			await doppelTroublemaker.play();
+			doppelTroublemaker.play();
 			await wait(16000)
 
 		}
@@ -190,7 +189,7 @@ async function startNight(){
 			drunk.volume = 0.5
 			drunk.play()
 
-			await doppelDrunk.play();
+			doppelDrunk.play();
 			await wait(16000)
 
 		}
@@ -201,12 +200,12 @@ async function startNight(){
 			minion.volume = 0.1
 			minion.play()
 
-		await doppelMinion.play();
+		doppelMinion.play();
 		await wait(23000)
 
 		}
 	
-	await doppelOut.play();
+	doppelOut.play();
 	await wait(6000)
 
 	}
@@ -217,17 +216,17 @@ async function startNight(){
 		howl.volume = 1
 		howl.play()
 
-		await werewolfWakeUp.play();
+		werewolfWakeUp.play();
 		await wait(6000)
 
 		if(selectedRoles.doppelganger){
 
-			await doppelWerewolf.play()
+			doppelWerewolf.play()
 			await wait(7000)
 
 		}
 
-		await werewolfJustOne.play()
+		werewolfJustOne.play()
 		await wait(13000)
 
 		await werewolfOut.play()
@@ -242,18 +241,18 @@ async function startNight(){
 		minion.volume = 0.1
 		minion.play()
 
-		await minionWakeUp.play()
+		minionWakeUp.play()
 		await wait(12000)
 
 		if(selectedRoles.doppelganger){
 
-			await doppelWerewolfMinion.play()
+			doppelWerewolfMinion.play()
 
 		}
 
 		await wait(10000)
 
-		await minionOut.play()
+		minionOut.play()
 		await wait(9000)
 
 	}
@@ -261,18 +260,18 @@ async function startNight(){
 
 	if(selectedRoles.mason){
 
-		await masonsWakeUp.play()
+		masonsWakeUp.play()
 		await wait(5000)
 
 		if(selectedRoles.doppelganger){
 
-			await doppelMason.play()
+			doppelMason.play()
 
 		}
 
 		await wait(15000)
 	
-		await masonsOut.play()
+		masonsOut.play()
 		await wait(7000)
 
 	}
@@ -284,10 +283,10 @@ async function startNight(){
 		seer.volume = 0.3
 		seer.play()
 
-		await seerWakeUp.play()
+		seerWakeUp.play()
 		await wait(15000)
 
-		await seerOut.play()
+		seerOut.play()
 		await wait(5000)
 
 	}
@@ -299,10 +298,10 @@ async function startNight(){
 		robber.volume = 0.5
 		robber.play()
 
-		await robberWakeUp.play()
+		robberWakeUp.play()
 		await wait(18000)
 
-		await robberOut.play()
+		robberOut.play()
 		await wait(5000)
 
 	}
@@ -314,10 +313,10 @@ async function startNight(){
 		troublemaker.volume = 0.4
 		troublemaker.play()
 
-		await troublemakerWakeUp.play()
+		troublemakerWakeUp.play()
 		await wait(15000)
 
-		await troublemakerOut.play()
+		troublemakerOut.play()
 		await wait(5000)
 
 	}
@@ -329,10 +328,10 @@ async function startNight(){
 		drunk.volume = 0.5
 		drunk.play()
 
-		await drunkWakeUp.play()
+		drunkWakeUp.play()
 		await wait(15000)
 
-		await drunkOut.play()
+		drunkOut.play()
 		await wait(5000)
 
 	}
@@ -344,18 +343,18 @@ async function startNight(){
 		insomniac.volume = 0.3
 		insomniac.play()
 
-		await insomniacWakeUp.play()
+		insomniacWakeUp.play()
 		await wait(15000)
 
-		await insomniacOut.play()
+		insomniacOut.play()
 		await wait(5000)
 
 		if(selectedRoles.doppelganger){
 
-			await doppelInsomniac.play()
+			doppelInsomniac.play()
 			await wait(14000)
 			
-			await doppelInsomniacOut.play()
+			doppelInsomniacOut.play()
 			await wait(7000)
 
 		}
@@ -363,7 +362,7 @@ async function startNight(){
 	}
 
 
-	await everyoneWakeUp.play()
+	everyoneWakeUp.play()
 	await wait(6000)
 
 	document.getElementById("roles-container").style.display = "none";
@@ -375,11 +374,12 @@ async function startNight(){
 	iniciarTimerVisual();
 
 	await wait(300000)
-	await discussionEnd.play();
+	discussionEnd.play();
 	await wait(4000)
-	await vote.play()
+	vote.play()
 
 }
+
 
 
 
