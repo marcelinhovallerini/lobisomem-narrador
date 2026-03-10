@@ -629,6 +629,14 @@ async function startNight(){
 
 }
 
+window.onclick = () => {
+
+	voicePlayer.src = "narrator_begin.mp3"
+	voicePlayer.play()
+
+}
+
+
 
 
 
