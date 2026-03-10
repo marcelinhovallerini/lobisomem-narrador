@@ -1,162 +1,93 @@
 let howl
 let forest
 let owl
-
-let begin
-
-let sentinelRole
-
-let doppelWakeUp
-let doppelSentinel
-let doppelAlpha
-let doppelMystic
-let doppelMinion
-let doppelSeer
-let doppelApprentice
-let doppelPi
-let doppelRobber
-let doppelWitch
-let doppelIdiot
-let doppelTroublemaker
-let doppelDrunk
-let doppelOut
-let doppelWerewolf
-let doppelDream
-let doppelWerewolfMinion
-let doppelMason
-let doppelInsomniac
-let doppelInsomniacOut
-let doppelRevealer
-let doppelRevealerOut
-let doppelCurator
-let doppelCuratorOut
-
-let werewolfWakeUp
-let werewolfDream
-let werewolfJustOne
-let werewolfOut
-let alphaRole
-let mysticRole
-
-let minionWakeUp
-let minionOut
-
-let masonsWakeUp
-let masonsOut
-
-let seerWakeUp
-let seerOut
-
-let apprenticeRole
-
-let piRole
-
-let robberWakeUp
-let robberOut
-
-let witchRole
-
-let idiotRole
-
-let troublemakerWakeUp
-let troublemakerOut
-
-let drunkWakeUp
-let drunkOut
-
-let insomniacWakeUp
-let insomniacOut
-
-let revealerRole
-
-let curatorRole
-
-let everyoneWakeUp
-let discussionEnd
-let vote
+let voicePlayer
 
 window.onload = () => {
 
-	howl = document.getElementById("howlSound")
-	forest = document.getElementById("forestSound")
-	owl = document.getElementById("owlSound")
+    howl = document.getElementById("howlSound")
+    forest = document.getElementById("forestSound")
+    owl = document.getElementById("owlSound")
 
-	begin = document.getElementById("begin")
+    voicePlayer = document.getElementById("voicePlayer")
 
-	sentinelRole = document.getElementById("sentinelRole")
+}
 
-	doppelWakeUp = document.getElementById("doppelWakeUp")
-	doppelSentinel = document.getElementById("doppelSentinel")
-	doppelSeer = document.getElementById("doppelSeer")
-	doppelApprentice = document.getElementById("doppelApprentice")
-	doppelPi = document.getElementById("doppelPi")
-	doppelRobber = document.getElementById("doppelRobber")
-	doppelWitch = document.getElementById("doppelWitch")
-	doppelIdiot = document.getElementById("doppelIdiot")
-	doppelTroublemaker = document.getElementById("doppelTroublemaker")
-	doppelDrunk = document.getElementById("doppelDrunk")
-	doppelMinion = document.getElementById("doppelMinion")
-	doppelOut = document.getElementById("doppelOut")
-	doppelWerewolf = document.getElementById("doppelWerewolf")
-	doppelDream = document.getElementById("doppelDream")
-	doppelAlpha = document.getElementById("doppelAlpha")
-	doppelMystic = document.getElementById("doppelMystic")
-	doppelWerewolfMinion = document.getElementById("doppelWerewolfMinion")
-	doppelMason = document.getElementById("doppelMason")
-	doppelInsomniac = document.getElementById("doppelInsomniac")
-	doppelInsomniacOut = document.getElementById("doppelInsomniacOut")
-	doppelRevealer = document.getElementById("doppelRevealer")
-	doppelRevealerOut = document.getElementById("doppelRevealerOut")
-	doppelCurator = document.getElementById("doppelCurator")
-	doppelCuratorOut = document.getElementById("doppelCuratorOut")
+const audioFiles = {
 
-	werewolfWakeUp = document.getElementById("werewolfWakeUp")
-	werewolfDream = document.getElementById("werewolfDream")
-	werewolfJustOne = document.getElementById("werewolfJustOne")
-	werewolfOut = document.getElementById("werewolfOut")
-	alphaRole = document.getElementById("alphaRole")
-	mysticRole = document.getElementById("mysticRole")
+begin:"narrator_begin.mp3",
 
-	minionWakeUp = document.getElementById("minionWakeUp")
-	minionOut = document.getElementById("minionOut")
+sentinelRole:"narrator_sentinel_wakeup.mp3",
 
-	masonsWakeUp = document.getElementById("masonsWakeUp")
-	masonsOut = document.getElementById("masonsOut")
+doppelWakeUp:"narrator_doppel_wakeup.mp3",
+doppelSentinel:"narrator_doppel_sentinel.mp3",
+doppelAlpha:"narrator_doppel_alpha.mp3",
+doppelMystic:"narrator_doppel_mystic.mp3",
+doppelMinion:"narrator_doppel_minion.mp3",
+doppelSeer:"narrator_doppel_seer.mp3",
+doppelApprentice:"narrator_doppel_apprentice.mp3",
+doppelPi:"narrator_doppel_pi.mp3",
+doppelRobber:"narrator_doppel_robber.mp3",
+doppelWitch:"narrator_doppel_witch.mp3",
+doppelIdiot:"narrator_doppel_idiot.mp3",
+doppelTroublemaker:"narrator_doppel_troublemaker.mp3",
+doppelDrunk:"narrator_doppel_drunk.mp3",
+doppelOut:"narrator_doppel_out.mp3",
+doppelWerewolf:"narrator_doppel_werewolf.mp3",
+doppelDream:"narrator_doppel_dream.mp3",
+doppelWerewolfMinion:"narrator_doppel_werewolf_minion.mp3",
+doppelMason:"narrator_doppel_mason.mp3",
+doppelInsomniac:"narrator_doppel_insomniac.mp3",
+doppelInsomniacOut:"narrator_doppel_insomniac_out.mp3",
+doppelRevealer:"narrator_doppel_revealer.mp3",
+doppelRevealerOut:"narrator_doppel_revealer_out.mp3",
+doppelCurator:"narrator_doppel_curator.mp3",
+doppelCuratorOut:"narrator_doppel_curator_out.mp3",
 
-	seerWakeUp = document.getElementById("seerWakeUp")
-	seerOut = document.getElementById("seerOut")
+werewolfWakeUp:"narrator_werewolf_wakeup.mp3",
+werewolfDream:"narrator_werewolf_dream.mp3",
+werewolfJustOne:"narrator_werewolf_justone.mp3",
+werewolfOut:"narrator_werewolf_out.mp3",
 
-	apprenticeRole = document.getElementById("apprenticeRole")
+alphaRole:"narrator_alpha_wakeup.mp3",
+mysticRole:"narrator_mystic_wakeup.mp3",
 
-	piRole = document.getElementById("piRole")
+minionWakeUp:"narrator_minion_wakeup.mp3",
+minionOut:"narrator_minion_out.mp3",
 
-	robberWakeUp = document.getElementById("robberWakeUp")
-	robberOut = document.getElementById("robberOut")
+masonsWakeUp:"narrator_masons_wakeup.mp3",
+masonsOut:"narrator_masons_out.mp3",
 
-	witchRole = document.getElementById("witchRole")
+seerWakeUp:"narrator_seer_wakeup.mp3",
+seerOut:"narrator_seer_out.mp3",
 
-	idiotRole = document.getElementById("idiotRole")
+apprenticeRole:"narrator_apprentice_wakeup.mp3",
 
-	troublemakerWakeUp = document.getElementById("troublemakerWakeUp")
-	troublemakerOut = document.getElementById("troublemakerOut")
+piRole:"narrator_pi_wakeup.mp3",
 
-	drunkWakeUp = document.getElementById("drunkWakeUp")
-	drunkOut = document.getElementById("drunkOut")
+robberWakeUp:"narrator_robber_wakeup.mp3",
+robberOut:"narrator_robber_out.mp3",
 
-	insomniacWakeUp = document.getElementById("insomniacWakeUp")
-	insomniacOut = document.getElementById("insomniacOut")
+witchRole:"narrator_witch_wakeup.mp3",
 
-	revealerRole = document.getElementById("revealerRole")
+idiotRole:"narrator_idiot_wakeup.mp3",
 
-	curatorRole = document.getElementById("curatorRole")
+troublemakerWakeUp:"narrator_troublemaker_wakeup.mp3",
+troublemakerOut:"narrator_troublemaker_out.mp3",
 
-	everyoneWakeUp = document.getElementById("everyoneWakeUp")
-	discussionEnd = document.getElementById("discussionEnd")
-	vote = document.getElementById("vote")
+drunkWakeUp:"narrator_drunk_wakeup.mp3",
+drunkOut:"narrator_drunk_out.mp3",
 
-	document.querySelectorAll("audio").forEach(a=>{
-	a.preload = "metadata"
-})
+insomniacWakeUp:"narrator_insomniac_wakeup.mp3",
+insomniacOut:"narrator_insomniac_out.mp3",
+
+revealerRole:"narrator_revealer_wakeup.mp3",
+
+curatorRole:"narrator_curator_wakeup.mp3",
+
+everyoneWakeUp:"narrator_everyone_wakeup.mp3",
+discussionEnd:"narrator_discussion_end.mp3",
+vote:"narrator_vote.mp3"
 
 }
 
@@ -247,37 +178,31 @@ function unlockAudios(){
 
 }
 
+function play(sound){
 
-function play(audio){
+	const file = audioFiles[sound]
 
-	if(!audio) return Promise.resolve()
+	if(!file) return Promise.resolve()
 
 	audioQueue = audioQueue.then(()=>{
 
 		return new Promise(resolve=>{
 
-			audio.pause()
-			audio.currentTime = 0
+			voicePlayer.pause()
+			voicePlayer.currentTime = 0
+			voicePlayer.src = file
 
 			const endHandler = () => {
-				audio.removeEventListener("ended", endHandler)
+				voicePlayer.removeEventListener("ended", endHandler)
 				resolve()
 			}
 
-			audio.addEventListener("ended", endHandler)
+			voicePlayer.addEventListener("ended", endHandler)
 
-			const p = audio.play()
+			const p = voicePlayer.play()
 
-			if(p !== undefined){
-				p.catch(()=>{
-					resolve()
-				})
-			}
-
-			if(audio.readyState < 2){
-				audio.onloadedmetadata = ()=>{
-					setTimeout(resolve, (audio.duration || 1) * 1000)
-				}
+			if(p){
+				p.catch(()=>resolve())
 			}
 
 		})
@@ -701,6 +626,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
