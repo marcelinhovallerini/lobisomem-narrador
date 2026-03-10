@@ -258,11 +258,15 @@ function resetGame(){
 
 async function startNight(){
 
+	unlockAudios()
+
 	clearInterval(window.owlInterval)
 	
+	if(forest){
 	forest.loop = true
 	forest.volume = 0.6
 	forest.play().catch(()=>{})
+	}
 
 	window.owlInterval = setInterval(() => {
 
@@ -479,6 +483,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
