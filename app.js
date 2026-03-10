@@ -78,7 +78,7 @@ window.onload = () => {
 	doppelInsomniac = document.getElementById("doppelInsomniac")
 	doppelInsomniacOut = document.getElementById("doppelInsomniacOut")
 
-	werewolfWakeUp = document.getElementById("werewolfWakeUpS")
+	werewolfWakeUp = document.getElementById("werewolfWakeUp")
 	werewolfJustOne = document.getElementById("werewolfJustOne")
 	werewolfOut = document.getElementById("werewolfOut")
 
@@ -512,6 +512,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
