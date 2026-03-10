@@ -258,6 +258,13 @@ function resetGame(){
 	location.reload();
 }
 
+window.onclick = () => {
+
+	voicePlayer.src = "narrator_begin.mp3"
+	voicePlayer.play()
+
+}
+
 async function startNight(){
 
 	unlockAudios()
@@ -629,12 +636,8 @@ async function startNight(){
 
 }
 
-window.onclick = () => {
 
-	voicePlayer.src = "narrator_begin.mp3"
-	voicePlayer.play()
 
-}
 
 
 
