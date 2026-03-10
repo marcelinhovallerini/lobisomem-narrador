@@ -105,7 +105,7 @@ function wait(ms){
 
 function iniciarTimerVisual(){
 
-	let tempo = 10;
+	let tempo = 300;
 	const timerEl = document.getElementById("timer");
 	const intervalo = setInterval(()=>{
 		let minutos = Math.floor(tempo/60);
@@ -378,12 +378,13 @@ async function startNight(){
 
 	iniciarTimerVisual();
 
-	await wait(10000)
+	await wait(300000)
 	await discussionEnd.play();
 	await wait(4000)
 	await vote.play()
 
 }
+
 
 
 
