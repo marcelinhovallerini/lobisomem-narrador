@@ -202,7 +202,17 @@ const roleLimits = {
 	tanner: 1,
 	hunter: 1,
 	minion: 1,
-	doppelganger: 1
+	doppelganger: 1,
+	alpha: 1,
+	mystic: 1,
+	dream: 1,
+	sentinel: 1,
+	pi: 1,
+	witch: 1,
+	apprentice: 1,
+	idiot: 1,
+	revealer: 1,
+	curator: 1
 }
 
 function updateCount(button, count){
@@ -367,10 +377,52 @@ async function startNight(){
 	await play(begin)
 	await wait(2000)
 
+	if(selectedRoles.sentinel){
+
+	await play(sentinelWakeUp)
+	await wait(5000)
+
+	await play(sentinelOut)
+	await wait(2000)
+
+	}
+
 	if(selectedRoles.doppelganger){
 
 		await play(doppelWakeUp)
 		await wait(5000)
+
+		if(selectedRoles.sentinel){
+
+		await play(doppelSentinel)
+		await wait(5000)
+			
+		}
+
+		if(selectedRoles.alpha){
+
+		await play(doppelAlpha)
+		await wait(5000)
+			
+		}
+
+		if(selectedRoles.mystic){
+
+		await play(doppelMystic)
+		await wait(5000)
+			
+		}
+
+		if(selectedRoles.minion){
+
+			minion.currentTime = 0
+			minion.volume = 0.1
+			minion.play()
+
+		await play(doppelMinion)
+		await wait(5000)
+
+		}
 
 		if(selectedRoles.seer){
 
@@ -383,6 +435,20 @@ async function startNight(){
 
 		}
 
+		if(selectedRoles.apprentice){
+
+		await play(doppelApprentice)
+		await wait(5000)
+
+		}
+
+		if(selectedRoles.pi){
+
+		await play(doppelPi)
+		await wait(5000)
+
+		}
+
 		if(selectedRoles.robber){
 
 			robber.currentTime = 0
@@ -391,6 +457,20 @@ async function startNight(){
 
 			await play(doppelRobber)
 			await wait(5000)
+
+		}
+
+		if(selectedRoles.witch){
+
+		await play(doppelWitch)
+		await wait(5000)
+
+		}
+
+		if(selectedRoles.idiot){
+
+		await play(doppelIdiot)
+		await wait(7000)
 
 		}
 
@@ -415,24 +495,13 @@ async function startNight(){
 			await wait(5000)
 
 		}
-
-		if(selectedRoles.minion){
-
-			minion.currentTime = 0
-			minion.volume = 0.1
-			minion.play()
-
-		await play(doppelMinion)
-		await wait(5000)
-
-		}
 	
 	await play(doppelOut)
 	await wait(2000)
 
 	}
 
-	if(selectedRoles.werewolf){
+	if(selectedRoles.werewolf || selectRoles.alpha || selectedRoles.mystic && selectedRoles.dream == null){
 
 		howl.currentTime = 0
 		howl.volume = 1
@@ -454,6 +523,48 @@ async function startNight(){
 
 	}
 
+	if(selectedRoles.werewolf || selectRoles.alpha || selectedRoles.mystic && selectedRoles.dream != null){
+
+		howl.currentTime = 0
+		howl.volume = 1
+		howl.play()
+
+		await play(werewolfDream)
+
+		if(selectedRoles.doppelganger){
+
+			await play(doppelWerewolf)
+			await play(doppelDream)
+
+		}
+
+		await play(werewolfJustOne)
+		await wait(5000)
+
+		await play(werewolfOut)
+		await wait(2000)
+
+	}
+
+	if(selectedRoles.alpha){
+
+	await play(alphaWakeUp)
+	await wait(5000)
+		
+	await play(alphaOut)
+	await wait(2000)
+
+	}
+
+	if(selectedRoles.mystic){
+
+	await play(mysticWakeUp)
+	await wait(5000)
+		
+	await play(mysticOut)
+	await wait(2000)
+
+	}
 
 	if(selectedRoles.minion){
 
@@ -508,6 +619,26 @@ async function startNight(){
 
 	}
 
+	if(selectedRoles.apprentice){
+
+	await play(apprenticeWakeUp)
+	await wait(5000)
+
+	await play(apprenticeOut)
+	await wait(2000)
+
+	}
+
+	if(selectedRoles.pi){
+
+	await play(piWakeUp)
+	await wait(5000)
+
+	await play(piOut)
+	await wait(2000)
+
+	}
+
 
 	if(selectedRoles.robber){
 
@@ -523,6 +654,25 @@ async function startNight(){
 
 	}
 
+	if(selectedRoles.witch){
+
+	await play(witchWakeUp)
+	await wait(5000)
+
+	await play(witchOut)
+	await wait(2000)
+
+	}
+
+	if(selectedRoles.idiot){
+
+	await play(idiotWakeUp)
+	await wait(5000)
+
+	await play(idiotOut)
+	await wait(2000)
+
+	}
 
 	if(selectedRoles.troublemaker){
 
@@ -576,6 +726,42 @@ async function startNight(){
 
 		}
 
+		if(selectedRoles.revealer){
+
+		await play(revealerWakeUp)
+		await wait(5000)
+
+		await play(revealerOut)
+		await wait(2000)
+
+		if(selectedRoles.doppelganger){
+
+			await play(doppelRevealer)
+			await wait(5000)
+			
+			await play(doppelRevealerOut)
+			await wait(2000)
+
+		}
+
+		if(selectedRoles.curator){
+
+		await play(curatorWakeUp)
+		await wait(5000)
+
+		await play(curatorOut)
+		await wait(2000)
+
+		if(selectedRoles.doppelganger){
+
+			await play(doppelCurator)
+			await wait(5000)
+			
+			await play(doppelCuratorOut)
+			await wait(2000)
+
+		}
+
 	}
 
 
@@ -594,6 +780,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
