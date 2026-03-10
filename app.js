@@ -114,9 +114,7 @@ function play(audio){
 		audio.pause()
 		audio.currentTime = 0
 
-		audio.onended = () => {
-			resolve()
-		}
+		audio.addEventListener("ended", resolve, { once:true })
 
 		audio.play().catch(()=>{
 			resolve()
@@ -164,11 +162,13 @@ function resetGame(){
 
 async function startNight(){
 
+	clearInterval(window.owlInterval)
+	
 	forest.loop = true
 	forest.volume = 0.6
 	forest.play().catch(()=>{})
 
-	setInterval(() => {
+	window.owlInterval = setInterval(() => {
 
 	if(owl.paused){
 		owl.currentTime = 0
@@ -416,6 +416,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
