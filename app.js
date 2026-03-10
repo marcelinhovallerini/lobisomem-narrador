@@ -114,15 +114,13 @@ function play(audio){
 		audio.pause()
 		audio.currentTime = 0
 
-		const promise = audio.play()
-
-		if(promise !== undefined){
-			promise.then(()=>{
-				audio.onended = resolve
-			}).catch(()=>{
-				resolve()
-			})
+		audio.onended = () => {
+			resolve()
 		}
+
+		audio.play().catch(()=>{
+			resolve()
+		})
 
 	})
 }
@@ -418,6 +416,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
