@@ -230,11 +230,21 @@ function toggleRole(button, role){
 
 let audioQueue = Promise.resolve()
 function unlockAudios(){
+
 	const audios = document.querySelectorAll("audio")
+
 	audios.forEach(audio=>{
-	audio.load()
+
+		audio.muted = true
+
+		audio.play().then(()=>{
+			audio.pause()
+			audio.currentTime = 0
+			audio.muted = false
+		}).catch(()=>{})
+
 	})
-	
+
 }
 
 
@@ -266,7 +276,7 @@ function play(audio){
 
 			if(audio.readyState < 2){
 				audio.onloadedmetadata = ()=>{
-					setTimeout(resolve, audio.duration * 1000)
+					setTimeout(resolve, (audio.duration || 1) * 1000)
 				}
 			}
 
@@ -337,7 +347,7 @@ async function startNight(){
 
 	window.owlInterval = setInterval(() => {
 
-	if(owl.paused){
+	if(owl && owl.paused){
 		owl.currentTime = 0
 		owl.volume = 0.5
 		owl.play().catch(()=>{})
@@ -457,7 +467,7 @@ async function startNight(){
 
 		howl.currentTime = 0
 		howl.volume = 1
-		howl.play()
+		howl.play().catch(()=>{})
 
 		await play(werewolfWakeUp)
 
@@ -482,7 +492,7 @@ async function startNight(){
 
 		howl.currentTime = 0
 		howl.volume = 1
-		howl.play()
+		howl.play().catch(()=>{})
 
 		await play(werewolfDream)
 
@@ -569,7 +579,7 @@ async function startNight(){
 
 	if(selectedRoles.pi){
 
-	await play(apprenticeRole)
+	await play(piRole)
 	await wait(2000)
 
 	}
@@ -691,6 +701,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
