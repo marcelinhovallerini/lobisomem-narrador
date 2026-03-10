@@ -96,8 +96,16 @@ function speak(text){
 }
 
 function play(audio){
-	audio.currentTime = 0
-	audio.play().catch(()=>{})
+	return new Promise(resolve=>{
+		audio.pause()
+		audio.currentTime = 0
+
+		audio.onended = resolve
+
+		audio.play().catch(()=>{
+			resolve()
+		})
+	})
 }
 
 function wait(ms){
@@ -384,6 +392,7 @@ async function startNight(){
 	play(vote)
 
 }
+
 
 
 
