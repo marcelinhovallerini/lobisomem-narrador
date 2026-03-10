@@ -187,44 +187,16 @@ function speak(text){
 
 }
 
+let audioQueue = Promise.resolve()
 function unlockAudios(){
-
 	const audios = document.querySelectorAll("audio")
-
 	audios.forEach(audio=>{
-		audio.play().then(()=>{
-			audio.pause()
-			audio.currentTime = 0
-		}).catch(()=>{})
+	audio.load()
 	})
-
+	
 }
 
-function play(audio){
 
-	return new Promise(resolve => {
-
-		if(!audio){
-			resolve()
-			return
-		}
-
-		audio.pause()
-		audio.currentTime = 0
-
-		audio.play().catch(()=>{})
-
-		const duration = audio.duration * 1000
-
-		if(!duration || duration === Infinity){
-			audio.onended = resolve
-		}else{
-			setTimeout(resolve, duration)
-		}
-
-	})
-
-}
 
 function wait(ms){
 
