@@ -160,11 +160,14 @@ function toggleRole(button, role){
 }
 
 let audioQueue = Promise.resolve()
+
 function unlockAudios(){
 
-	const audios = document.querySelectorAll("audio")
+	const audios = [forest, owl, howl]
 
 	audios.forEach(audio=>{
+
+		if(!audio) return
 
 		audio.muted = true
 
@@ -193,6 +196,7 @@ function play(sound){
 			voicePlayer.pause()
 			voicePlayer.currentTime = 0
 			voicePlayer.src = file
+			voicePlayer.load()
 
 			const endHandler = () => {
 				voicePlayer.removeEventListener("ended", endHandler)
@@ -201,10 +205,20 @@ function play(sound){
 
 			voicePlayer.addEventListener("ended", endHandler)
 
-			const p = voicePlayer.play()
+			const playAudio = () => {
 
-			if(p){
-				p.catch(()=>resolve())
+				const p = voicePlayer.play()
+
+				if(p){
+					p.catch(()=>resolve())
+				}
+
+			}
+
+			if(voicePlayer.readyState >= 2){
+				playAudio()
+			}else{
+				voicePlayer.onloadeddata = playAudio
 			}
 
 		})
@@ -258,14 +272,9 @@ function resetGame(){
 	location.reload();
 }
 
-window.onclick = () => {
-
-	voicePlayer.src = "narrator_begin.mp3"
-	voicePlayer.play()
-
-}
-
 async function startNight(){
+
+	audioQueue = Promise.resolve()
 
 	unlockAudios()
 
@@ -276,7 +285,7 @@ async function startNight(){
 	if(forest){
 	forest.loop = true
 	forest.volume = 0.6
-	forest.play().catch(()=>{})
+	forest.play()
 	}
 
 	window.owlInterval = setInterval(() => {
@@ -284,7 +293,7 @@ async function startNight(){
 	if(owl && owl.paused){
 		owl.currentTime = 0
 		owl.volume = 0.5
-		owl.play().catch(()=>{})
+		owl.play()
 	}
 
 	},30000)
@@ -401,7 +410,7 @@ async function startNight(){
 
 		howl.currentTime = 0
 		howl.volume = 1
-		howl.play().catch(()=>{})
+		howl.play()
 
 		await play("werewolfWakeUp")
 
@@ -426,7 +435,7 @@ async function startNight(){
 
 		howl.currentTime = 0
 		howl.volume = 1
-		howl.play().catch(()=>{})
+		howl.play()
 
 		await play("werewolfDream")
 
