@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Narrador One Night Werewolf</title>
+<link rel="stylesheet" href="style.css">
+</head>
+  
+<body>
+
+<h1>🐺 Narrador Werewolf</h1>
+
+<h2 id="roles-title">Selecione os personagens</h2>
+
+<div id="roles-container" class="roles">
+
+	<button class="role" onclick="toggleRole(this,'doppelganger')">😶‍🌫️ Doppelganger</button>
+	<button class="role" onclick="toggleRole(this,'werewolf')">🐺 Lobisomem</button>
+	<button class="role" onclick="toggleRole(this,'minion')">😈 Minion</button>
+	<button class="role" onclick="toggleRole(this,'mason')">💍 Maçon</button>
+	<button class="role" onclick="toggleRole(this,'seer')">🔮 Vidente</button>
+	<button class="role" onclick="toggleRole(this,'robber')">🗡️ Ladrão</button>
+	<button class="role" onclick="toggleRole(this,'troublemaker')">🔀 Encrenqueiro</button>
+	<button class="role" onclick="toggleRole(this,'drunk')">🍺 Bêbado</button>
+	<button class="role" onclick="toggleRole(this,'insomniac')">👁️ Insone</button>
+	<button class="role" onclick="toggleRole(this,'tanner')">🔥 Tanner</button>
+	<button class="role" onclick="toggleRole(this,'hunter')">🏹 Caçador</button>
+	<button class="role" onclick="toggleRole(this,'villager')">😐 Aldeão</button>
+
+</div>
+
+<br>
+
+
+<button id="start-container" class="start" onclick="startNight()">🌙 Iniciar Noite</button>
+<button class="reset" onclick="resetGame()">Reiniciar</button>
+
+<div id="timer-container" style="display:none;">
+
+    <div id="timer-label">Tempo de discussão</div>
+    <div id="timer">05:00</div>
+
+</div>
+
+<audio id="howlSound" src="uivo.mp3"></audio>
+<audio id="seerSound" src="long_swoosh.mp3"></audio>
+<audio id="gigglesSound" src="giggles.mp3"></audio>
+<audio id="bottleSound" src="bottle.mp3"></audio>
+<audio id="yawnSound" src="yawn.mp3"></audio>
+<audio id="whispersSound" src="whispers.mp3"></audio>
+<audio id="bladeSound" src="blade.mp3"></audio>
+<audio id="forestSound" src="floresta.mp3" loop></audio>
+<audio id="owlSound" src="owl.mp3"></audio>
+<audio id="begin" src="narrator_begin.mp3"></audio>
+<audio id="doppelWakeUp" src="narrator_doppel_wakeup.mp3"></audio>
+<audio id="doppelSeer" src="narrator_doppel_seer.mp3"></audio>
+<audio id="doppelRobber" src="narrator_doppel_robber.mp3"></audio>
+<audio id="doppelTroublemaker" src="narrator_doppel_troublemaker.mp3"></audio>
+<audio id="doppelDrunk" src="narrator_doppel_drunk.mp3"></audio>
+<audio id="doppelMinion" src="narrator_doppel_minion.mp3"></audio>
+<audio id="doppelOut" src="narrator_doppel_out.mp3"></audio>
+<audio id="werewolfWakeUp" src="narrator_werewolf_wakeup.mp3"></audio>
+<audio id="doppelWerewolf" src="narrator_doppel_werewolf.mp3"></audio>
+<audio id="werewolfJustOne" src="narrator_werewolf_justone.mp3"></audio>
+<audio id="werewolfOut" src="narrator_werewolf_out.mp3"></audio>
+<audio id="minionWakeUp" src="narrator_minion_wakeup.mp3"></audio>
+<audio id="doppelWerewolfMinion" src="narrator_doppel_werewolf_minion.mp3"></audio>
+<audio id="minionOut" src="narrator_minion_out.mp3"></audio>
+<audio id="masonsWakeUp" src="narrator_masons_wakeup.mp3"></audio>
+<audio id="doppelMason" src="narrator_doppel_mason.mp3"></audio>
+<audio id="masonsOut" src="narrator_masons_out.mp3"></audio>
+<audio id="seerWakeUp" src="narrator_seer_wakeup.mp3"></audio>
+<audio id="seerOut" src="narrator_seer_out.mp3"></audio>
+<audio id="robberWakeUp" src="narrator_robber_wakeup.mp3"></audio>
+<audio id="robberOut" src="narrator_robber_out.mp3"></audio>
+<audio id="troublemakerWakeUp" src="narrator_troublemaker_wakeup.mp3"></audio>
+<audio id="troublemakerOut" src="narrator_troublemaker_out.mp3"></audio>
+<audio id="drunkWakeUp" src="narrator_drunk_wakeup.mp3"></audio>
+<audio id="drunkOut" src="narrator_drunk_out.mp3"></audio>
+<audio id="insomniacWakeUp" src="narrator_insomniac_wakeup.mp3"></audio>
+<audio id="insomniacOut" src="narrator_insomniac_out.mp3"></audio>
+<audio id="doppelInsomniac" src="narrator_doppel_insomniac.mp3"></audio>
+<audio id="doppelInsomniacOut" src="narrator_doppel_insomniac_out.mp3"></audio>
+<audio id="everyoneWakeUp" src="narrator_everyone_wakeup.mp3"></audio>
+<audio id="discussionEnd" src="narrator_discussion_end.mp3"></audio>
+<audio id="vote" src="narrator_vote.mp3"></audio>
+
+<script src="app.js"></script>
+
+</body>
+</html>
