@@ -8,7 +8,51 @@ let minion
 let robber
 let drunk
 
+let begin
+let doppelWakeUp
+let doppelSeer
+let doppelRobber
+let doppelTroublemaker
+let doppelDrunk
+let doppelMinion
+let doppelOut
+let doppelWerewolf
+let doppelWerewolfMinion
+let doppelMason
+let doppelInsomniac
+let doppelInsomniacOut
+
+let werewolfWakeUp
+let werewolfJustOne
+let werewolfOut
+
+let minionWakeUp
+let minionOut
+
+let masonsWakeUp
+let masonsOut
+
+let seerWakeUp
+let seerOut
+
+let robberWakeUp
+let robberOut
+
+let troublemakerWakeUp
+let troublemakerOut
+
+let drunkWakeUp
+let drunkOut
+
+let insomniacWakeUp
+let insomniacOut
+
+let everyoneWakeUp
+let discussionEnd
+let vote
+
 window.onload = () => {
+
 	seer = document.getElementById("seerSound")
 	howl = document.getElementById("howlSound")
 	forest = document.getElementById("forestSound")
@@ -18,6 +62,50 @@ window.onload = () => {
 	minion = document.getElementById("whispersSound")
 	robber = document.getElementById("bladeSound")
 	drunk = document.getElementById("bottleSound")
+
+	begin = document.getElementById("beginSound")
+
+	doppelWakeUp = document.getElementById("doppelWakeUpSound")
+	doppelSeer = document.getElementById("doppelSeerSound")
+	doppelRobber = document.getElementById("doppelRobberSound")
+	doppelTroublemaker = document.getElementById("doppelTroublemakerSound")
+	doppelDrunk = document.getElementById("doppelDrunkSound")
+	doppelMinion = document.getElementById("doppelMinionSound")
+	doppelOut = document.getElementById("doppelOutSound")
+	doppelWerewolf = document.getElementById("doppelWerewolfSound")
+	doppelWerewolfMinion = document.getElementById("doppelWerewolfMinionSound")
+	doppelMason = document.getElementById("doppelMasonSound")
+	doppelInsomniac = document.getElementById("doppelInsomniacSound")
+	doppelInsomniacOut = document.getElementById("doppelInsomniacOutSound")
+
+	werewolfWakeUp = document.getElementById("werewolfWakeUpSound")
+	werewolfJustOne = document.getElementById("werewolfJustOneSound")
+	werewolfOut = document.getElementById("werewolfOutSound")
+
+	minionWakeUp = document.getElementById("minionWakeUpSound")
+	minionOut = document.getElementById("minionOutSound")
+
+	masonsWakeUp = document.getElementById("masonsWakeUpSound")
+	masonsOut = document.getElementById("masonsOutSound")
+
+	seerWakeUp = document.getElementById("seerWakeUpSound")
+	seerOut = document.getElementById("seerOutSound")
+
+	robberWakeUp = document.getElementById("robberWakeUpSound")
+	robberOut = document.getElementById("robberOutSound")
+
+	troublemakerWakeUp = document.getElementById("troublemakerWakeUpSound")
+	troublemakerOut = document.getElementById("troublemakerOutSound")
+
+	drunkWakeUp = document.getElementById("drunkWakeUpSound")
+	drunkOut = document.getElementById("drunkOutSound")
+
+	insomniacWakeUp = document.getElementById("insomniacWakeUpSound")
+	insomniacOut = document.getElementById("insomniacOutSound")
+
+	everyoneWakeUp = document.getElementById("everyoneWakeUpSound")
+	discussionEnd = document.getElementById("discussionEndSound")
+	vote = document.getElementById("voteSound")
 
 }
 
@@ -421,6 +509,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
