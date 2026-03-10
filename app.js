@@ -288,7 +288,7 @@ async function startNight(){
 
 			seer.currentTime = 0
 			seer.volume = 0.3
-			await play(seer)
+			seer.play()
 
 			await play(doppelSeer)
 
@@ -298,7 +298,7 @@ async function startNight(){
 
 			robber.currentTime = 0
 			robber.volume = 0.5
-			await play(robber)
+			robber.play()
 
 			await play(doppelRobber)
 
@@ -308,7 +308,7 @@ async function startNight(){
 
 			troublemaker.currentTime = 0
 			troublemaker.volume = 0.4
-			await play(troublemaker)
+			troublemaker.play()
 
 			await play(doppelTroublemaker)
 
@@ -318,7 +318,7 @@ async function startNight(){
 
 			drunk.currentTime = 0
 			drunk.volume = 0.5
-			await play(drunk)
+			drunk.play()
 
 			await play(doppelDrunk)
 
@@ -328,7 +328,7 @@ async function startNight(){
 
 			minion.currentTime = 0
 			minion.volume = 0.1
-			await play(minion)
+			minion.play()
 
 		await play(doppelMinion)
 
@@ -342,7 +342,7 @@ async function startNight(){
 
 		howl.currentTime = 0
 		howl.volume = 1
-		await play(howl)
+		howl.play()
 
 		await play(werewolfWakeUp)
 
@@ -363,7 +363,7 @@ async function startNight(){
 
 		minion.currentTime = 0
 		minion.volume = 0.1
-		await play(minion)
+		minion.play()
 
 		await play(minionWakeUp)
 
@@ -398,7 +398,7 @@ async function startNight(){
 
 		seer.currentTime = 0
 		seer.volume = 0.3
-		await play(seer)
+		seer.play()
 
 		await play(seerWakeUp)
 
@@ -411,7 +411,7 @@ async function startNight(){
 
 		robber.currentTime = 0
 		robber.volume = 0.5
-		await play(robber)
+		robber.play()
 
 		await play(robberWakeUp)
 
@@ -424,7 +424,7 @@ async function startNight(){
 
 		troublemaker.currentTime = 0
 		troublemaker.volume = 0.4
-		await play(troublemaker)
+		troublemaker.play()
 
 		await play(troublemakerWakeUp)
 
@@ -437,7 +437,7 @@ async function startNight(){
 
 		drunk.currentTime = 0
 		drunk.volume = 0.5
-		await play(drunk)
+		drunk.play()
 
 		await play(drunkWakeUp)
 
@@ -450,7 +450,7 @@ async function startNight(){
 
 		insomniac.currentTime = 0
 		insomniac.volume = 0.3
-		await play(insomniac)
+		insomniac.play()
 
 		await play(insomniacWakeUp)
 
@@ -483,6 +483,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
