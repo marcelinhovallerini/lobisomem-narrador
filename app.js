@@ -171,22 +171,6 @@ function toggleRole(button, role){
 
 }
 
-function speak(text){
-
-	return new Promise(resolve=>{
-
-		const speech = new SpeechSynthesisUtterance(text)
-		speech.lang = "pt-BR"
-		const voices = speechSynthesis.getVoices()
-		speech.voice = voices.find(v => v.lang === "pt-BR")
-		speech.rate = 0.9
-		speech.onend = resolve
-		speechSynthesis.speak(speech)
-
-	})
-
-}
-
 let audioQueue = Promise.resolve()
 function unlockAudios(){
 	const audios = document.querySelectorAll("audio")
@@ -245,28 +229,34 @@ function wait(ms){
 
 function iniciarTimerVisual(){
 
-	let tempo = 300;
-	const timerEl = document.getElementById("timer");
-	const intervalo = setInterval(()=>{
-		let minutos = Math.floor(tempo/60);
-		let segundos = tempo % 60;
-		timerEl.innerText =
-			String(minutos).padStart(2,"0")+":"+
-			String(segundos).padStart(2,"0");
+	return new Promise(resolve=>{
 
-		if(tempo <= 30){
-			timerEl.classList.add("timer-warning");
-		}
+		let tempo = 300;
+		const timerEl = document.getElementById("timer");
 
-		tempo--;
+		const intervalo = setInterval(()=>{
 
-		if(tempo < 0){
+			let minutos = Math.floor(tempo/60);
+			let segundos = tempo % 60;
 
-			clearInterval(intervalo);
+			timerEl.innerText =
+				String(minutos).padStart(2,"0")+":"+
+				String(segundos).padStart(2,"0");
 
-		}
+			if(tempo <= 30){
+				timerEl.classList.add("timer-warning");
+			}
 
-	},1000);
+			if(tempo <= 0){
+				clearInterval(intervalo)
+				resolve() 
+			}
+
+			tempo--
+
+		},1000)
+
+	})
 
 }
 
@@ -524,12 +514,12 @@ async function startNight(){
 
 	iniciarTimerVisual();
 
-	await wait(300000)
 	await play(discussionEnd)
 	await wait(2000)
 	await play(vote)
 
 }
+
 
 
 
