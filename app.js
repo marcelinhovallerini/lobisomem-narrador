@@ -114,7 +114,12 @@ function play(audio){
 		audio.pause()
 		audio.currentTime = 0
 
-		audio.addEventListener("ended", resolve, { once:true })
+		const endedHandler = () => {
+			audio.removeEventListener("ended", endedHandler)
+			resolve()
+		}
+
+		audio.addEventListener("ended", endedHandler)
 
 		audio.play().catch(()=>{
 			resolve()
@@ -416,6 +421,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
