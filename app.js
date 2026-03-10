@@ -9,22 +9,43 @@ let robber
 let drunk
 
 let begin
+
+let sentinelWakeUp
+let sentinelOut
+
 let doppelWakeUp
+let doppelSentinel
+let doppelAlpha
+let doppelMystic
+let doppelMinion
 let doppelSeer
+let doppelApprentice
+let doppelPi
 let doppelRobber
+let doppelWitch
+let doppelIdiot
 let doppelTroublemaker
 let doppelDrunk
-let doppelMinion
 let doppelOut
 let doppelWerewolf
+let doppelDream
 let doppelWerewolfMinion
 let doppelMason
 let doppelInsomniac
 let doppelInsomniacOut
+let doppelRevealer
+let doppelRevealerOut
+let doppelCurator
+let doppelCuratorOut
 
 let werewolfWakeUp
+let werewolfDream
 let werewolfJustOne
 let werewolfOut
+let alphaWakeUp
+let alphaOut
+let mysticWakeUp
+let mysticOut
 
 let minionWakeUp
 let minionOut
@@ -35,8 +56,20 @@ let masonsOut
 let seerWakeUp
 let seerOut
 
+let apprenticeWakeUp
+let apprenticeOut
+
+let piWakeUp
+let piOut
+
 let robberWakeUp
 let robberOut
+
+let witchWakeUp
+let witchOut
+
+let idiotWakeUp
+let idiotOut
 
 let troublemakerWakeUp
 let troublemakerOut
@@ -46,6 +79,12 @@ let drunkOut
 
 let insomniacWakeUp
 let insomniacOut
+
+let revealerWakeUp
+let revealerOut
+
+let curatorWakeUp
+let curatorOut
 
 let everyoneWakeUp
 let discussionEnd
@@ -65,22 +104,40 @@ window.onload = () => {
 
 	begin = document.getElementById("begin")
 
+	sentinelWakeUp = document.getElementById("sentinelWakeUp")
+	sentinelOut = document.getElementById("sentinelOut")
+
 	doppelWakeUp = document.getElementById("doppelWakeUp")
+	doppelSentinel = document.getElementById("doppelSentinel")
 	doppelSeer = document.getElementById("doppelSeer")
+	doppelApprentice = document.getElementById("doppelApprentice")
+	doppelPi = document.getElementById("doppelPi")
 	doppelRobber = document.getElementById("doppelRobber")
+	doppelWitch = document.getElementById("doppelWitch")
+	doppelIdiot = document.getElementById("doppelIdiot")
 	doppelTroublemaker = document.getElementById("doppelTroublemaker")
 	doppelDrunk = document.getElementById("doppelDrunk")
 	doppelMinion = document.getElementById("doppelMinion")
 	doppelOut = document.getElementById("doppelOut")
 	doppelWerewolf = document.getElementById("doppelWerewolf")
+	doppelDream = document.getElementById("doppelDream")
 	doppelWerewolfMinion = document.getElementById("doppelWerewolfMinion")
 	doppelMason = document.getElementById("doppelMason")
 	doppelInsomniac = document.getElementById("doppelInsomniac")
 	doppelInsomniacOut = document.getElementById("doppelInsomniacOut")
+	doppelRevealer = document.getElementById("doppelRevealer")
+	doppelRevealerOut = document.getElementById("doppelRevealerOut")
+	doppelCurator = document.getElementById("doppelCurator")
+	doppelCuratorOut = document.getElementById("doppelCuratorOut")
 
 	werewolfWakeUp = document.getElementById("werewolfWakeUp")
+	werewolfDream = document.getElementById("werewolfDream")
 	werewolfJustOne = document.getElementById("werewolfJustOne")
 	werewolfOut = document.getElementById("werewolfOut")
+	alphaWakeUp = document.getElementById("alphaWakeUp")
+	alphaOut = document.getElementById("alphaOut")
+	mysticWakeUp = document.getElementById("mysticWakeUp")
+	mysticOut = document.getElementById("mysticOut")
 
 	minionWakeUp = document.getElementById("minionWakeUp")
 	minionOut = document.getElementById("minionOut")
@@ -91,8 +148,20 @@ window.onload = () => {
 	seerWakeUp = document.getElementById("seerWakeUp")
 	seerOut = document.getElementById("seerOut")
 
+	apprenticeWakeUp = document.getElementById("apprenticeWakeUp")
+	apprenticeOut = document.getElementById("apprenticeOut")
+
+	piWakeUp = document.getElementById("piWakeUp")
+	piOut = document.getElementById("piOut")
+
 	robberWakeUp = document.getElementById("robberWakeUp")
 	robberOut = document.getElementById("robberOut")
+
+	witchWakeUp = document.getElementById("witchWakeUp")
+	witchOut = document.getElementById("witchOut")
+
+	idiotWakeUp = document.getElementById("idiotWakeUp")
+	idiotOut = document.getElementById("idiotOut")
 
 	troublemakerWakeUp = document.getElementById("troublemakerWakeUp")
 	troublemakerOut = document.getElementById("troublemakerOut")
@@ -102,6 +171,12 @@ window.onload = () => {
 
 	insomniacWakeUp = document.getElementById("insomniacWakeUp")
 	insomniacOut = document.getElementById("insomniacOut")
+
+	revealerWakeUp = document.getElementById("revealerWakeUp")
+	revealerOut = document.getElementById("revealerOut")
+
+	curatorWakeUp = document.getElementById("curatorWakeUp")
+	curatorOut = document.getElementById("curatorOut")
 
 	everyoneWakeUp = document.getElementById("everyoneWakeUp")
 	discussionEnd = document.getElementById("discussionEnd")
@@ -519,6 +594,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
