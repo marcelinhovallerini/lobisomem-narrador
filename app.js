@@ -121,6 +121,8 @@ window.onload = () => {
 	doppelOut = document.getElementById("doppelOut")
 	doppelWerewolf = document.getElementById("doppelWerewolf")
 	doppelDream = document.getElementById("doppelDream")
+	doppelAlpha = document.getElementById("doppelAlpha")
+	doppelMystic = document.getElementById("doppelMystic")
 	doppelWerewolfMinion = document.getElementById("doppelWerewolfMinion")
 	doppelMason = document.getElementById("doppelMason")
 	doppelInsomniac = document.getElementById("doppelInsomniac")
@@ -501,7 +503,10 @@ async function startNight(){
 
 	}
 
-	if(selectedRoles.werewolf || selectRoles.alpha || selectedRoles.mystic && selectedRoles.dream == null){
+	if(
+ (selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
+ !selectedRoles.dream
+){
 
 		howl.currentTime = 0
 		howl.volume = 1
@@ -523,7 +528,10 @@ async function startNight(){
 
 	}
 
-	if(selectedRoles.werewolf || selectRoles.alpha || selectedRoles.mystic && selectedRoles.dream != null){
+	if(
+ (selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
+ selectedRoles.dream
+){
 
 		howl.currentTime = 0
 		howl.volume = 1
@@ -784,6 +792,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
