@@ -65,47 +65,47 @@ window.onload = () => {
 
 	begin = document.getElementById("beginSound")
 
-	doppelWakeUp = document.getElementById("doppelWakeUpSound")
-	doppelSeer = document.getElementById("doppelSeerSound")
-	doppelRobber = document.getElementById("doppelRobberSound")
-	doppelTroublemaker = document.getElementById("doppelTroublemakerSound")
-	doppelDrunk = document.getElementById("doppelDrunkSound")
-	doppelMinion = document.getElementById("doppelMinionSound")
-	doppelOut = document.getElementById("doppelOutSound")
-	doppelWerewolf = document.getElementById("doppelWerewolfSound")
-	doppelWerewolfMinion = document.getElementById("doppelWerewolfMinionSound")
-	doppelMason = document.getElementById("doppelMasonSound")
-	doppelInsomniac = document.getElementById("doppelInsomniacSound")
-	doppelInsomniacOut = document.getElementById("doppelInsomniacOutSound")
+	doppelWakeUp = document.getElementById("doppelWakeUp")
+	doppelSeer = document.getElementById("doppelSeer")
+	doppelRobber = document.getElementById("doppelRobber")
+	doppelTroublemaker = document.getElementById("doppelTroublemaker")
+	doppelDrunk = document.getElementById("doppelDrunk")
+	doppelMinion = document.getElementById("doppelMinion")
+	doppelOut = document.getElementById("doppelOut")
+	doppelWerewolf = document.getElementById("doppelWerewolf")
+	doppelWerewolfMinion = document.getElementById("doppelWerewolfMinion")
+	doppelMason = document.getElementById("doppelMason")
+	doppelInsomniac = document.getElementById("doppelInsomniac")
+	doppelInsomniacOut = document.getElementById("doppelInsomniacOut")
 
-	werewolfWakeUp = document.getElementById("werewolfWakeUpSound")
-	werewolfJustOne = document.getElementById("werewolfJustOneSound")
-	werewolfOut = document.getElementById("werewolfOutSound")
+	werewolfWakeUp = document.getElementById("werewolfWakeUpS")
+	werewolfJustOne = document.getElementById("werewolfJustOne")
+	werewolfOut = document.getElementById("werewolfOut")
 
-	minionWakeUp = document.getElementById("minionWakeUpSound")
-	minionOut = document.getElementById("minionOutSound")
+	minionWakeUp = document.getElementById("minionWakeUp")
+	minionOut = document.getElementById("minionOut")
 
-	masonsWakeUp = document.getElementById("masonsWakeUpSound")
-	masonsOut = document.getElementById("masonsOutSound")
+	masonsWakeUp = document.getElementById("masonsWakeUp")
+	masonsOut = document.getElementById("masonsOut")
 
-	seerWakeUp = document.getElementById("seerWakeUpSound")
-	seerOut = document.getElementById("seerOutSound")
+	seerWakeUp = document.getElementById("seerWakeUp")
+	seerOut = document.getElementById("seerOut")
 
-	robberWakeUp = document.getElementById("robberWakeUpSound")
-	robberOut = document.getElementById("robberOutSound")
+	robberWakeUp = document.getElementById("robberWakeUp")
+	robberOut = document.getElementById("robberOut")
 
-	troublemakerWakeUp = document.getElementById("troublemakerWakeUpSound")
-	troublemakerOut = document.getElementById("troublemakerOutSound")
+	troublemakerWakeUp = document.getElementById("troublemakerWakeUp")
+	troublemakerOut = document.getElementById("troublemakerOut")
 
-	drunkWakeUp = document.getElementById("drunkWakeUpSound")
-	drunkOut = document.getElementById("drunkOutSound")
+	drunkWakeUp = document.getElementById("drunkWakeUp")
+	drunkOut = document.getElementById("drunkOut")
 
-	insomniacWakeUp = document.getElementById("insomniacWakeUpSound")
-	insomniacOut = document.getElementById("insomniacOutSound")
+	insomniacWakeUp = document.getElementById("insomniacWakeUp")
+	insomniacOut = document.getElementById("insomniacOut")
 
-	everyoneWakeUp = document.getElementById("everyoneWakeUpSound")
-	discussionEnd = document.getElementById("discussionEndSound")
-	vote = document.getElementById("voteSound")
+	everyoneWakeUp = document.getElementById("everyoneWakeUp")
+	discussionEnd = document.getElementById("discussionEnd")
+	vote = document.getElementById("vote")
 
 }
 
@@ -512,6 +512,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
