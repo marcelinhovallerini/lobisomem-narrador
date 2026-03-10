@@ -147,7 +147,7 @@ function resetGame(){
 
 async function startNight(){
 
-	play(forest)
+	florest.play()
 
 	setInterval(() => {
   		owl.currentTime = 0;
@@ -392,6 +392,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
