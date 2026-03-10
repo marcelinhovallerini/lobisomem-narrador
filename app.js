@@ -619,13 +619,14 @@ async function startNight(){
 	document.getElementById("timer-container").style.display = "block";
 
 
-	iniciarTimerVisual();
+	await iniciarTimerVisual();
 
 	await play("discussionEnd")
 	await wait(2000)
 	await play("vote")
 
 }
+
 
 
 
