@@ -95,6 +95,19 @@ function speak(text){
 
 }
 
+function unlockAudios(){
+
+	const audios = document.querySelectorAll("audio")
+
+	audios.forEach(audio=>{
+		audio.play().then(()=>{
+			audio.pause()
+			audio.currentTime = 0
+		}).catch(()=>{})
+	})
+
+}
+
 function play(audio){
 	return new Promise(resolve=>{
 		audio.pause()
@@ -392,6 +405,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
