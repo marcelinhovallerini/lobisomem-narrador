@@ -297,12 +297,15 @@ async function startNight(){
 	}
 
 	},30000)
-    
+
+	await wait(2000)
 	await play(begin)
+	await wait(2000)
 
 	if(selectedRoles.doppelganger){
 
 		await play(doppelWakeUp)
+		await wait(5000)
 
 		if(selectedRoles.seer){
 
@@ -311,6 +314,7 @@ async function startNight(){
 			seer.play()
 
 			await play(doppelSeer)
+			await wait(5000)
 
 		}
 
@@ -321,6 +325,7 @@ async function startNight(){
 			robber.play()
 
 			await play(doppelRobber)
+			await wait(5000)
 
 		}
 
@@ -331,6 +336,7 @@ async function startNight(){
 			troublemaker.play()
 
 			await play(doppelTroublemaker)
+			await wait(5000)
 
 		}
 
@@ -341,6 +347,7 @@ async function startNight(){
 			drunk.play()
 
 			await play(doppelDrunk)
+			await wait(5000)
 
 		}
 
@@ -351,10 +358,12 @@ async function startNight(){
 			minion.play()
 
 		await play(doppelMinion)
+		await wait(5000)
 
 		}
 	
 	await play(doppelOut)
+	await wait(2000)
 
 	}
 
@@ -373,8 +382,10 @@ async function startNight(){
 		}
 
 		await play(werewolfJustOne)
+		await wait(5000)
 
 		await play(werewolfOut)
+		await wait(2000)
 
 	}
 
@@ -392,9 +403,11 @@ async function startNight(){
 			await play(doppelWerewolfMinion)
 
 		}
-
+		
+        await wait(5000)
 
 		await play(minionOut)
+		await wait(2000)
 
 	}
 
@@ -408,8 +421,10 @@ async function startNight(){
 			await play(doppelMason)
 
 		}
-	
+
+    	await wait(5000)
 		await play(masonsOut)
+		await wait(2000)
 
 	}
 
@@ -421,8 +436,10 @@ async function startNight(){
 		seer.play()
 
 		await play(seerWakeUp)
+		await wait(5000)
 
 		await play(seerOut)
+		await wait(2000)
 
 	}
 
@@ -434,8 +451,10 @@ async function startNight(){
 		robber.play()
 
 		await play(robberWakeUp)
+		await wait(5000)
 
 		await play(robberOut)
+		await wait(2000)
 
 	}
 
@@ -447,8 +466,10 @@ async function startNight(){
 		troublemaker.play()
 
 		await play(troublemakerWakeUp)
+		await wait(5000)
 
 		await play(troublemakerOut)
+		await wait(2000)
 
 	}
 
@@ -460,8 +481,10 @@ async function startNight(){
 		drunk.play()
 
 		await play(drunkWakeUp)
+		await wait(5000)
 
 		await play(drunkOut)
+		await wait(2000)
 
 	}
 
@@ -473,14 +496,18 @@ async function startNight(){
 		insomniac.play()
 
 		await play(insomniacWakeUp)
+		await wait(5000)
 
 		await play(insomniacOut)
+		await wait(2000)
 
 		if(selectedRoles.doppelganger){
 
 			await play(doppelInsomniac)
+			await wait(5000)
 			
 			await play(doppelInsomniacOut)
+			await wait(2000)
 
 		}
 
@@ -499,10 +526,11 @@ async function startNight(){
 
 	await wait(300000)
 	await play(discussionEnd)
-	await wait(4000)
+	await wait(2000)
 	await play(vote)
 
 }
+
 
 
 
