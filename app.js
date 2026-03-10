@@ -107,6 +107,10 @@ window.onload = () => {
 	discussionEnd = document.getElementById("discussionEnd")
 	vote = document.getElementById("vote")
 
+	document.querySelectorAll("audio").forEach(a=>{
+	a.load()
+})
+
 }
 
 const selectedRoles = {}
@@ -197,6 +201,7 @@ function unlockAudios(){
 }
 
 function play(audio){
+
 	return new Promise(resolve => {
 
 		if(!audio){
@@ -207,16 +212,18 @@ function play(audio){
 		audio.pause()
 		audio.currentTime = 0
 
-		const end = () => {
-			audio.removeEventListener("ended", end)
-			resolve()
+		audio.play().catch(()=>{})
+
+		const duration = audio.duration * 1000
+
+		if(!duration || duration === Infinity){
+			audio.onended = resolve
+		}else{
+			setTimeout(resolve, duration)
 		}
 
-		audio.addEventListener("ended", end)
-
-		audio.play().catch(resolve)
-
 	})
+
 }
 
 function wait(ms){
@@ -483,6 +490,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
