@@ -63,7 +63,7 @@ window.onload = () => {
 	robber = document.getElementById("bladeSound")
 	drunk = document.getElementById("bottleSound")
 
-	begin = document.getElementById("beginSound")
+	begin = document.getElementById("begin")
 
 	doppelWakeUp = document.getElementById("doppelWakeUp")
 	doppelSeer = document.getElementById("doppelSeer")
@@ -512,6 +512,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
