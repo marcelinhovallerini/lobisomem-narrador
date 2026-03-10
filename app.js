@@ -182,6 +182,8 @@ function play(sound){
 
 	const file = audioFiles[sound]
 
+	console.log("Tocando:", sound, "Arquivo:", file)
+
 	if(!file) return Promise.resolve()
 
 	audioQueue = audioQueue.then(()=>{
@@ -626,6 +628,7 @@ async function startNight(){
 	await play("vote")
 
 }
+
 
 
 
