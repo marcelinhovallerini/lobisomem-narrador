@@ -283,10 +283,22 @@ async function startNight(){
 	clearInterval(window.owlInterval)
 	
 	if(forest){
+
 	forest.loop = true
 	forest.volume = 0.6
-	forest.play()
+	forest.currentTime = 0
+
+	const p = forest.play()
+
+	if(p){
+		p.catch(()=>{
+			setTimeout(()=>{
+				forest.play()
+			},300)
+		})
 	}
+
+	}	
 
 	window.owlInterval = setInterval(() => {
 
@@ -644,6 +656,7 @@ async function startNight(){
 	await play("vote")
 
 }
+
 
 
 
