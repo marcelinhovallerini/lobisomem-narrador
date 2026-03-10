@@ -726,6 +726,8 @@ async function startNight(){
 
 		}
 
+	}
+
 		if(selectedRoles.revealer){
 
 		await play(revealerWakeUp)
@@ -741,6 +743,8 @@ async function startNight(){
 			
 			await play(doppelRevealerOut)
 			await wait(2000)
+
+		}
 
 		}
 
@@ -762,7 +766,7 @@ async function startNight(){
 
 		}
 
-	}
+		}
 
 
 	await play(everyoneWakeUp)
@@ -780,6 +784,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
