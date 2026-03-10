@@ -1,17 +1,10 @@
 let howl
 let forest
 let owl
-let seer
-let troublemaker
-let insomniac
-let minion
-let robber
-let drunk
 
 let begin
 
-let sentinelWakeUp
-let sentinelOut
+let sentinelRole
 
 let doppelWakeUp
 let doppelSentinel
@@ -42,10 +35,8 @@ let werewolfWakeUp
 let werewolfDream
 let werewolfJustOne
 let werewolfOut
-let alphaWakeUp
-let alphaOut
-let mysticWakeUp
-let mysticOut
+let alphaRole
+let mysticRole
 
 let minionWakeUp
 let minionOut
@@ -56,20 +47,16 @@ let masonsOut
 let seerWakeUp
 let seerOut
 
-let apprenticeWakeUp
-let apprenticeOut
+let apprenticeRole
 
-let piWakeUp
-let piOut
+let piRole
 
 let robberWakeUp
 let robberOut
 
-let witchWakeUp
-let witchOut
+let witchRole
 
-let idiotWakeUp
-let idiotOut
+let idiotRole
 
 let troublemakerWakeUp
 let troublemakerOut
@@ -80,11 +67,9 @@ let drunkOut
 let insomniacWakeUp
 let insomniacOut
 
-let revealerWakeUp
-let revealerOut
+let revealerRole
 
-let curatorWakeUp
-let curatorOut
+let curatorRole
 
 let everyoneWakeUp
 let discussionEnd
@@ -92,20 +77,13 @@ let vote
 
 window.onload = () => {
 
-	seer = document.getElementById("seerSound")
 	howl = document.getElementById("howlSound")
 	forest = document.getElementById("forestSound")
 	owl = document.getElementById("owlSound")
-	troublemaker = document.getElementById("gigglesSound")
-	insomniac = document.getElementById("yawnSound")
-	minion = document.getElementById("whispersSound")
-	robber = document.getElementById("bladeSound")
-	drunk = document.getElementById("bottleSound")
 
 	begin = document.getElementById("begin")
 
-	sentinelWakeUp = document.getElementById("sentinelWakeUp")
-	sentinelOut = document.getElementById("sentinelOut")
+	sentinelRole = document.getElementById("sentinelRole")
 
 	doppelWakeUp = document.getElementById("doppelWakeUp")
 	doppelSentinel = document.getElementById("doppelSentinel")
@@ -136,10 +114,8 @@ window.onload = () => {
 	werewolfDream = document.getElementById("werewolfDream")
 	werewolfJustOne = document.getElementById("werewolfJustOne")
 	werewolfOut = document.getElementById("werewolfOut")
-	alphaWakeUp = document.getElementById("alphaWakeUp")
-	alphaOut = document.getElementById("alphaOut")
-	mysticWakeUp = document.getElementById("mysticWakeUp")
-	mysticOut = document.getElementById("mysticOut")
+	alphaRole = document.getElementById("alphaRole")
+	mysticRole = document.getElementById("mysticRole")
 
 	minionWakeUp = document.getElementById("minionWakeUp")
 	minionOut = document.getElementById("minionOut")
@@ -150,20 +126,16 @@ window.onload = () => {
 	seerWakeUp = document.getElementById("seerWakeUp")
 	seerOut = document.getElementById("seerOut")
 
-	apprenticeWakeUp = document.getElementById("apprenticeWakeUp")
-	apprenticeOut = document.getElementById("apprenticeOut")
+	apprenticeRole = document.getElementById("apprenticeRole")
 
-	piWakeUp = document.getElementById("piWakeUp")
-	piOut = document.getElementById("piOut")
+	piRole = document.getElementById("piRole")
 
 	robberWakeUp = document.getElementById("robberWakeUp")
 	robberOut = document.getElementById("robberOut")
 
-	witchWakeUp = document.getElementById("witchWakeUp")
-	witchOut = document.getElementById("witchOut")
+	witchRole = document.getElementById("witchRole")
 
-	idiotWakeUp = document.getElementById("idiotWakeUp")
-	idiotOut = document.getElementById("idiotOut")
+	idiotRole = document.getElementById("idiotRole")
 
 	troublemakerWakeUp = document.getElementById("troublemakerWakeUp")
 	troublemakerOut = document.getElementById("troublemakerOut")
@@ -174,18 +146,16 @@ window.onload = () => {
 	insomniacWakeUp = document.getElementById("insomniacWakeUp")
 	insomniacOut = document.getElementById("insomniacOut")
 
-	revealerWakeUp = document.getElementById("revealerWakeUp")
-	revealerOut = document.getElementById("revealerOut")
+	revealerRole = document.getElementById("revealerRole")
 
-	curatorWakeUp = document.getElementById("curatorWakeUp")
-	curatorOut = document.getElementById("curatorOut")
+	curatorRole = document.getElementById("curatorRole")
 
 	everyoneWakeUp = document.getElementById("everyoneWakeUp")
 	discussionEnd = document.getElementById("discussionEnd")
 	vote = document.getElementById("vote")
 
 	document.querySelectorAll("audio").forEach(a=>{
-	a.load()
+	a.preload = "metadata"
 })
 
 }
@@ -381,10 +351,7 @@ async function startNight(){
 
 	if(selectedRoles.sentinel){
 
-	await play(sentinelWakeUp)
-	await wait(5000)
-
-	await play(sentinelOut)
+	await play(sentinelRole)
 	await wait(2000)
 
 	}
@@ -417,10 +384,6 @@ async function startNight(){
 
 		if(selectedRoles.minion){
 
-			minion.currentTime = 0
-			minion.volume = 0.1
-			minion.play()
-
 		await play(doppelMinion)
 		await wait(5000)
 
@@ -428,12 +391,8 @@ async function startNight(){
 
 		if(selectedRoles.seer){
 
-			seer.currentTime = 0
-			seer.volume = 0.3
-			seer.play()
-
-			await play(doppelSeer)
-			await wait(5000)
+		await play(doppelSeer)
+		await wait(5000)
 
 		}
 
@@ -453,12 +412,8 @@ async function startNight(){
 
 		if(selectedRoles.robber){
 
-			robber.currentTime = 0
-			robber.volume = 0.5
-			robber.play()
-
-			await play(doppelRobber)
-			await wait(5000)
+		await play(doppelRobber)
+		await wait(5000)
 
 		}
 
@@ -478,23 +433,15 @@ async function startNight(){
 
 		if(selectedRoles.troublemaker){
 
-			troublemaker.currentTime = 0
-			troublemaker.volume = 0.4
-			troublemaker.play()
-
-			await play(doppelTroublemaker)
-			await wait(5000)
+		await play(doppelTroublemaker)
+		await wait(5000)
 
 		}
 
 		if(selectedRoles.drunk){
 
-			drunk.currentTime = 0
-			drunk.volume = 0.5
-			drunk.play()
-
-			await play(doppelDrunk)
-			await wait(5000)
+		await play(doppelDrunk)
+		await wait(5000)
 
 		}
 	
@@ -556,35 +503,25 @@ async function startNight(){
 
 	if(selectedRoles.alpha){
 
-	await play(alphaWakeUp)
-	await wait(5000)
-		
-	await play(alphaOut)
+	await play(alphaRole)
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.mystic){
 
-	await play(mysticWakeUp)
-	await wait(5000)
-		
-	await play(mysticOut)
+	await play(mysticRole)
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.minion){
 
-		minion.currentTime = 0
-		minion.volume = 0.1
-		minion.play()
-
 		await play(minionWakeUp)
 
 		if(selectedRoles.doppelganger){
 
-			await play(doppelWerewolfMinion)
+		await play(doppelWerewolfMinion)
 
 		}
 		
@@ -615,10 +552,6 @@ async function startNight(){
 
 	if(selectedRoles.seer){
 
-		seer.currentTime = 0
-		seer.volume = 0.3
-		seer.play()
-
 		await play(seerWakeUp)
 		await wait(5000)
 
@@ -629,30 +562,20 @@ async function startNight(){
 
 	if(selectedRoles.apprentice){
 
-	await play(apprenticeWakeUp)
-	await wait(5000)
-
-	await play(apprenticeOut)
+	await play(apprenticeRole)
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.pi){
 
-	await play(piWakeUp)
-	await wait(5000)
-
-	await play(piOut)
+	await play(apprenticeRole)
 	await wait(2000)
 
 	}
 
 
 	if(selectedRoles.robber){
-
-		robber.currentTime = 0
-		robber.volume = 0.5
-		robber.play()
 
 		await play(robberWakeUp)
 		await wait(5000)
@@ -664,29 +587,19 @@ async function startNight(){
 
 	if(selectedRoles.witch){
 
-	await play(witchWakeUp)
-	await wait(5000)
-
-	await play(witchOut)
+	await play(witchRole)
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.idiot){
 
-	await play(idiotWakeUp)
-	await wait(5000)
-
-	await play(idiotOut)
+	await play(idiotRole)
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.troublemaker){
-
-		troublemaker.currentTime = 0
-		troublemaker.volume = 0.4
-		troublemaker.play()
 
 		await play(troublemakerWakeUp)
 		await wait(5000)
@@ -699,10 +612,6 @@ async function startNight(){
 
 	if(selectedRoles.drunk){
 
-		drunk.currentTime = 0
-		drunk.volume = 0.5
-		drunk.play()
-
 		await play(drunkWakeUp)
 		await wait(5000)
 
@@ -713,10 +622,6 @@ async function startNight(){
 
 
 	if(selectedRoles.insomniac){
-
-		insomniac.currentTime = 0
-		insomniac.volume = 0.3
-		insomniac.play()
 
 		await play(insomniacWakeUp)
 		await wait(5000)
@@ -738,10 +643,7 @@ async function startNight(){
 
 		if(selectedRoles.revealer){
 
-		await play(revealerWakeUp)
-		await wait(5000)
-
-		await play(revealerOut)
+		await play(revealerRole)
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -758,10 +660,7 @@ async function startNight(){
 
 		if(selectedRoles.curator){
 
-		await play(curatorWakeUp)
-		await wait(5000)
-
-		await play(curatorOut)
+		await play(curatorRole)
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -792,6 +691,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
