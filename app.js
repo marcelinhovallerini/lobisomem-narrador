@@ -197,23 +197,26 @@ function unlockAudios(){
 }
 
 function play(audio){
+
 	return new Promise(resolve=>{
+
+		if(!audio){
+			console.warn("Audio não encontrado")
+			resolve()
+			return
+		}
 
 		audio.pause()
 		audio.currentTime = 0
 
-		const endedHandler = () => {
-			audio.removeEventListener("ended", endedHandler)
-			resolve()
-		}
-
-		audio.addEventListener("ended", endedHandler)
+		audio.onended = resolve
 
 		audio.play().catch(()=>{
 			resolve()
 		})
 
 	})
+
 }
 
 function wait(ms){
@@ -509,6 +512,7 @@ async function startNight(){
 	await play(vote)
 
 }
+
 
 
 
