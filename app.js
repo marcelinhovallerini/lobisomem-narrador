@@ -300,9 +300,9 @@ async function startNight(){
 
 	},30000)
 
-	await wait(2000)
+	await wait(3000)
 	await play("begin")
-	await wait(2000)
+	await wait(3000)
 
 	if(selectedRoles.sentinel){
 
@@ -664,3 +664,4 @@ async function startNight(){
 	await play("vote")
 
 }
+
