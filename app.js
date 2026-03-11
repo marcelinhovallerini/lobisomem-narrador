@@ -105,25 +105,27 @@ const selectedRoles = {}
 
 function toggleRole(element, role, max){
 
-if(!selectedRoles[role]){
-selectedRoles[role] = 0
-}
+	if(!selectedRoles[role]){
+	selectedRoles[role] = 0
+	}
 
-selectedRoles[role]++
+	selectedRoles[role]++
 
-if(selectedRoles[role] > max){
-selectedRoles[role] = 0
-}
+	if(selectedRoles[role] > max){
+	selectedRoles[role] = 0
+	}
 
-const count = selectedRoles[role]
+	const count = selectedRoles[role]
 
-document.getElementById(role+"Count").textContent = count
+	document.getElementById(role+"Count").textContent = count
 
-if(count === 0){
-element.classList.remove("selected")
-}else{
-element.classList.add("selected")
-}
+	if(count === 0){
+	element.classList.remove("selected")
+	}else{
+	element.classList.add("selected")
+	}
+
+	updatePlayerCount()
 
 }
 
@@ -156,6 +158,37 @@ eyes.remove()
 
 setInterval(spawnEyes,8000)
 
+function updatePlayerCount(){
+
+let total = 0
+
+for(const role in selectedRoles){
+total += selectedRoles[role]
+}
+
+document.getElementById("playerCount").textContent = total
+
+}
+
+function showRole(roleName, image){
+
+const container = document.getElementById("activeRole")
+const img = document.getElementById("activeRoleImage")
+const name = document.getElementById("activeRoleName")
+
+img.src = image
+name.textContent = roleName
+
+container.style.display = "block"
+
+}
+
+function hideRole(){
+
+document.getElementById("activeRole").style.display = "none"
+
+}
+
 
 let audioQueue = Promise.resolve()
 
@@ -182,8 +215,6 @@ function unlockAudios(){
 function play(sound){
 
 	const file = audioFiles[sound]
-
-	console.log("Tocando:", sound, "Arquivo:", file)
 
 	if(!file) return Promise.resolve()
 
@@ -223,25 +254,28 @@ function wait(ms){
 
 let timerInterval
 
-function startTimer(seconds){
+function startTimer(duration){
 
-	let time = seconds
-
+	let time = duration
 	const timer = document.getElementById("timer")
 
 	timerInterval = setInterval(()=>{
 
-		let min = Math.floor(time/60)
-		let sec = time%60
+		let minutes = Math.floor(time / 60)
+		let seconds = time % 60
 
-		timer.innerText =
-		String(min).padStart(2,"0")+":"+
-		String(sec).padStart(2,"0")
+		timer.textContent =
+		String(minutes).padStart(2,"0") + ":" +
+		String(seconds).padStart(2,"0")
 
 		time--
 
 		if(time < 0){
+
 		clearInterval(timerInterval)
+
+		discussionFinished()
+
 		}
 
 	},1000)
@@ -253,6 +287,11 @@ function resetGame(){
 }
 
 async function startNight(){
+	
+	document.querySelector(".roles").style.display = "none"
+	document.getElementById("roles-title").style.display = "none"
+
+	document.getElementById("startButton").disabled = true
 
 	audioQueue = Promise.resolve()
 
@@ -288,14 +327,19 @@ async function startNight(){
 
 	if(selectedRoles.sentinel){
 
+	showRole("Sentinela","sentinel.jpg")
+
 	await play("sentinelWakeUp")
 	await wait(5000)
 	await play("sentinelOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.doppelganger){
+
+		showRole("Doppelganger","doppelganger.jpg")
 
 		await play("doppelWakeUp")
 		await wait(5000)
@@ -385,6 +429,7 @@ async function startNight(){
 		}
 	
 	await play("doppelOut")
+	hideRole()
 	await wait(2000)
 
 	}
@@ -398,6 +443,8 @@ async function startNight(){
 		howl.volume = 1
 		howl.play()
 
+		showRole("Lobisomens","werewolf.jpg")
+
 		await play("werewolfWakeUp")
 
 		if(selectedRoles.doppelganger){
@@ -410,6 +457,7 @@ async function startNight(){
 		await wait(5000)
 
 		await play("werewolfOut")
+		hideRole()
 		await wait(2000)
 
 	}
@@ -422,6 +470,8 @@ async function startNight(){
 		howl.currentTime = 0
 		howl.volume = 1
 		howl.play()
+
+		showRole("Lobisomens","werewolf.jpg")
 
 		await play("werewolfDream")
 
@@ -436,29 +486,36 @@ async function startNight(){
 		await wait(5000)
 
 		await play("werewolfOut")
+		hideRole()
 		await wait(2000)
 
 	}
 
 	if(selectedRoles.alpha){
 
+	showRole("Lobisomem Alfa","alpha.jpg")
 	await play("alphaWakeUp")
 	await wait(5000)
 	await play("alphaOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.mystic){
 
+	showRole("Lobisomem Místico","mystic.jpg")
 	await play("mysticWakeUp")
 	await wait(5000)
 	await play("mysticOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.minion){
+
+		showRole("Minion","minion.jpg")
 
 		await play("minionWakeUp")
 
@@ -471,12 +528,15 @@ async function startNight(){
         await wait(5000)
 
 		await play("minionOut")
+		hideRole()
 		await wait(2000)
 
 	}
 
 
 	if(selectedRoles.mason){
+
+		showRole("Mason","mason.jpg")
 
 		await play("masonsWakeUp")
 
@@ -488,6 +548,7 @@ async function startNight(){
 
     	await wait(5000)
 		await play("masonsOut")
+		hideRole()
 		await wait(2000)
 
 	}
@@ -495,67 +556,88 @@ async function startNight(){
 
 	if(selectedRoles.seer){
 
+		showRole("Vidente","seer.jpg")
+
 		await play("seerWakeUp")
 		await wait(5000)
 
 		await play("seerOut")
+		hideRole()
 		await wait(2000)
 
 	}
 
 	if(selectedRoles.apprentice){
 
+	showRole("Aprendiz de Vidente","apprentice.jpg")
+
 	await play("apprenticeWakeUp")
 	await wait(5000)
 	await play("apprenticeOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.pi){
 
+	showRole("Investigador Paranormal","pi.jpg")
+
 	await play("piWakeUp")
 	await wait(5000)
 	await play("piOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 
 	if(selectedRoles.robber){
+		
+		showRole("Ladrão","robber.jpg")
 
 		await play("robberWakeUp")
 		await wait(5000)
 
 		await play("robberOut")
+		hideRole()
 		await wait(2000)
 
 	}
 
 	if(selectedRoles.witch){
 
+	showRole("Bruxa","witch.jpg")
+
 	await play("witchWakeUp")
 	await wait(5000)
 	await play("witchOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.idiot){
 
+	showRole("Idiota","idiot.jpg")
+
 	await play("idiotWakeUp")
 	await wait(5000)
 	await play("idiotOut")
+	hideRole()
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.troublemaker){
+	
+		showRole("Encrenqueira","troublemaker.jpg")
 
 		await play("troublemakerWakeUp")
 		await wait(5000)
 
 		await play("troublemakerOut")
+		hideRole()
 		await wait(2000)
 
 	}
@@ -563,10 +645,13 @@ async function startNight(){
 
 	if(selectedRoles.drunk){
 
+		showRole("Bêbado","drunk.jpg")
+
 		await play("drunkWakeUp")
 		await wait(5000)
 
 		await play("drunkOut")
+		hideRole()
 		await wait(2000)
 
 	}
@@ -574,10 +659,13 @@ async function startNight(){
 
 	if(selectedRoles.insomniac){
 
+		showRole("Insone","insomniac.jpg")
+
 		await play("insomniacWakeUp")
 		await wait(5000)
 
 		await play("insomniacOut")
+		hideRole()
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -594,9 +682,12 @@ async function startNight(){
 
 		if(selectedRoles.revealer){
 
+		showRole("Revelador","revealer.jpg")
+
 		await play("revealerWakeUp")
 		await wait(5000)
 		await play("revealerOut")
+		hideRole()
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -613,9 +704,12 @@ async function startNight(){
 
 		if(selectedRoles.curator){
 
+		showRole("Curador","curator.jpg")
+
 		await play("curatorWakeUp")
 		await wait(5000)
 		await play("curatorOut")
+		hideRole()
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -642,10 +736,15 @@ async function startNight(){
 	document.getElementById("timer").style.display = "block"
 
 
-	await startTime(300);
+	await startTimer(300);
+
+
+	async function discussionFinished(){
 
 	await play("discussionEnd")
 	await wait(2000)
 	await play("vote")
+
+	}
 
 }
