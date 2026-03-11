@@ -521,7 +521,9 @@ z-index:40;
 
 .active-role img{
 
-width:300px;
+width:250px;
+
+padding-top: 220px
 
 border-radius:14px;
 
@@ -531,9 +533,9 @@ box-shadow:0 0 30px rgba(255,255,0,0.6);
 
 .active-role div{
 
-margin-top:12px;
+margin-top:15px;
 
-font-size:40px;
+font-size:20px;
 
 font-weight:bold;
 
