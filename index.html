@@ -53,19 +53,35 @@ Selecione os personagens (<span id="playerCount">0</span>)
 <div class="fireflies"></div>
 <div class="eyes-layer"></div>
 
-<div id="activeRole" class="active-role">
+<div id="activeRole">
+
+<div class="active-role">
 
 <img id="activeRoleImage">
+
+<div id="activeRoleArrow" style="display:none;">→</div>
+
+<img id="activeRoleImage2" style="display:none;">
+
+</div>
 
 <div id="activeRoleName"></div>
 
 </div>
 
+
+
+
 <div class="roles">
 
 
 
+<h3 class="category">Do Mal</h3>
 
+<div class="roles-grid">
+
+
+<!-- Lobisomem -->
 
 <div class="role" onclick="toggleRole(this,'werewolf',2)">
 
@@ -86,272 +102,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
-
-
-
-<div class="role" onclick="toggleRole(this,'robber',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="robber.jpg">
-</div>
-
-<div class="role-name">Ladrão</div>
-
-</div>
-
-<div class="badge">
-<span id="robberCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'seer',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="seer.jpg">
-</div>
-
-<div class="role-name">Vidente</div>
-
-</div>
-
-<div class="badge">
-<span id="seerCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'troublemaker',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="troublemaker.jpg">
-</div>
-
-<div class="role-name">Encrenqueira</div>
-
-</div>
-
-<div class="badge">
-<span id="troublemakerCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'insomniac',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="insomniac.jpg">
-</div>
-
-<div class="role-name">Insone</div>
-
-</div>
-
-<div class="badge">
-<span id="insomniacCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'minion',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="minion.jpg">
-</div>
-
-<div class="role-name">Minion</div>
-
-</div>
-
-<div class="badge">
-<span id="minionCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'doppelganger',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="doppelganger.jpg">
-</div>
-
-<div class="role-name">Doppelganger</div>
-
-</div>
-
-<div class="badge">
-<span id="doppelgangerCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'mason',2)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="mason.jpg">
-</div>
-
-<div class="role-name">Maçon</div>
-
-</div>
-
-<div class="badge">
-<span id="masonCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'drunk',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="drunk.jpg">
-</div>
-
-<div class="role-name">Bêbado</div>
-
-</div>
-
-<div class="badge">
-<span id="drunkCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'hunter',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="hunter.jpg">
-</div>
-
-<div class="role-name">Caçador</div>
-
-</div>
-
-<div class="badge">
-<span id="hunterCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'tanner',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="tanner.jpg">
-</div>
-
-<div class="role-name">Tanner</div>
-
-</div>
-
-<div class="badge">
-<span id="tannerCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'villager',3)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="villager.jpg">
-</div>
-
-<div class="role-name">Aldeão</div>
-
-</div>
-
-<div class="badge">
-<span id="villagerCount">0</span>
-</div>
-
-</div>
-
-
-
-
-
-<div class="role" onclick="toggleRole(this,'sentinel',1)">
-
-<div class="card-content">
-
-<div class="image-wrapper">
-<img src="sentinel.jpg">
-</div>
-
-<div class="role-name">Sentinela</div>
-
-</div>
-
-<div class="badge">
-<span id="sentinelCount">0</span>
-</div>
-
-</div>
-
-
-
-
+<!-- Lobisomem Alfa -->
 
 <div class="role" onclick="toggleRole(this,'alpha',1)">
 
@@ -372,8 +123,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
-
-
+<!-- Lobisomem Místico -->
 
 <div class="role" onclick="toggleRole(this,'mystic',1)">
 
@@ -394,8 +144,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
-
-
+<!-- Lobisomem dos Sonhos -->
 
 <div class="role" onclick="toggleRole(this,'dream',1)">
 
@@ -416,8 +165,132 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
+<!-- Minion -->
+
+<div class="role" onclick="toggleRole(this,'minion',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="minion.jpg">
+</div>
+
+<div class="role-name">Minion</div>
+
+</div>
+
+<div class="badge">
+<span id="minionCount">0</span>
+</div>
+
+</div>
+
+</div>
 
 
+
+
+
+<h3 class="category">Ações de início da noite</h3>
+
+<div class="roles-grid">
+
+<!-- Sentinela -->
+
+<div class="role" onclick="toggleRole(this,'sentinel',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="sentinel.jpg">
+</div>
+
+<div class="role-name">Sentinela</div>
+
+</div>
+
+<div class="badge">
+<span id="sentinelCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Doppelganger -->
+
+<div class="role" onclick="toggleRole(this,'doppelganger',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="doppelganger.jpg">
+</div>
+
+<div class="role-name">Doppelganger</div>
+
+</div>
+
+<div class="badge">
+<span id="doppelgangerCount">0</span>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+
+<h3 class="category">Informação</h3>
+
+<div class="roles-grid">
+
+
+<!-- Mason -->
+
+<div class="role" onclick="toggleRole(this,'mason',2)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="mason.jpg">
+</div>
+
+<div class="role-name">Maçon</div>
+
+</div>
+
+<div class="badge">
+<span id="masonCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Vidente -->
+
+<div class="role" onclick="toggleRole(this,'seer',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="seer.jpg">
+</div>
+
+<div class="role-name">Vidente</div>
+
+</div>
+
+<div class="badge">
+<span id="seerCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Aprendiz de Vidente -->
 
 <div class="role" onclick="toggleRole(this,'apprentice',1)">
 
@@ -438,8 +311,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
-
-
+<!-- Investigador Paranormal -->
 
 <div class="role" onclick="toggleRole(this,'pi',1)">
 
@@ -459,9 +331,38 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 </div>
 
+</div>
 
 
 
+
+<h3 class="category">Troca</h3>
+
+<div class="roles-grid">
+
+
+<!-- Ladrão -->
+
+<div class="role" onclick="toggleRole(this,'robber',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="robber.jpg">
+</div>
+
+<div class="role-name">Ladrão</div>
+
+</div>
+
+<div class="badge">
+<span id="robberCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Bruxa -->
 
 <div class="role" onclick="toggleRole(this,'witch',1)">
 
@@ -482,8 +383,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
-
-
+<!-- Idiota da Vila -->
 
 <div class="role" onclick="toggleRole(this,'idiot',1)">
 
@@ -504,8 +404,80 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
+<!-- Encrenqueira -->
+
+<div class="role" onclick="toggleRole(this,'troublemaker',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="troublemaker.jpg">
+</div>
+
+<div class="role-name">Encrenqueira</div>
+
+</div>
+
+<div class="badge">
+<span id="troublemakerCount">0</span>
+</div>
+
+</div>
 
 
+<!-- Bêbado -->
+
+<div class="role" onclick="toggleRole(this,'drunk',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="drunk.jpg">
+</div>
+
+<div class="role-name">Bêbado</div>
+
+</div>
+
+<div class="badge">
+<span id="drunkCount">0</span>
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<h3 class="category">Ações de fim de noite</h3>
+
+<div class="roles-grid">
+
+
+<!-- Insone -->
+
+<div class="role" onclick="toggleRole(this,'insomniac',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="insomniac.jpg">
+</div>
+
+<div class="role-name">Insone</div>
+
+</div>
+
+<div class="badge">
+<span id="insomniacCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Revelador -->
 
 <div class="role" onclick="toggleRole(this,'revealer',1)">
 
@@ -526,8 +498,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 
-
-
+<!-- Curador -->
 
 <div class="role" onclick="toggleRole(this,'curator',1)">
 
@@ -546,6 +517,85 @@ Selecione os personagens (<span id="playerCount">0</span>)
 </div>
 
 </div>
+
+</div>
+
+
+
+
+
+
+
+
+<h3 class="category">Sem ação da noite</h3>
+
+<div class="roles-grid">
+
+
+<!-- Caçador -->
+
+<div class="role" onclick="toggleRole(this,'hunter',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="hunter.jpg">
+</div>
+
+<div class="role-name">Caçador</div>
+
+</div>
+
+<div class="badge">
+<span id="hunterCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Tanner -->
+
+<div class="role" onclick="toggleRole(this,'tanner',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="tanner.jpg">
+</div>
+
+<div class="role-name">Tanner</div>
+
+</div>
+
+<div class="badge">
+<span id="tannerCount">0</span>
+</div>
+
+</div>
+
+
+<!-- Aldeão -->
+
+<div class="role" onclick="toggleRole(this,'villager',3)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="villager.jpg">
+</div>
+
+<div class="role-name">Aldeão</div>
+
+</div>
+
+<div class="badge">
+<span id="villagerCount">0</span>
+</div>
+
+</div>
+
+</div>
+
 
 <br>
 
