@@ -1,12 +1,10 @@
 let howl
-let forest
 let owl
 let voicePlayer
 
 window.onload = () => {
 
     howl = document.getElementById("howlSound")
-    forest = document.getElementById("forestSound")
     owl = document.getElementById("owlSound")
 
     voicePlayer = document.getElementById("voicePlayer")
@@ -189,12 +187,58 @@ document.getElementById("activeRole").style.display = "none"
 
 }
 
+let forestA = new Audio("floresta.mp3")
+let forestB = new Audio("floresta.mp3")
+
+const maxVolume = 0.6
+const fadeTime = 2000
+
+forestA.volume = maxVolume
+forestB.volume = 0
+
+forestA.play().catch(()=>{})
+
+let current = forestA
+let next = forestB
+
+function startCrossfade(){
+
+    next.currentTime = 0
+    next.volume = 0
+    next.play()
+
+    let step = 0
+    let steps = 20
+
+    let fade = setInterval(()=>{
+
+        step++
+
+        current.volume = maxVolume * (1 - step/steps)
+        next.volume = maxVolume * (step/steps)
+
+        if(step >= steps){
+
+            clearInterval(fade)
+
+            current.pause()
+
+            let temp = current
+            current = next
+            next = temp
+
+        }
+
+    }, fadeTime/steps)
+
+}
+
 
 let audioQueue = Promise.resolve()
 
 function unlockAudios(){
 
-	const audios = [forest, owl, howl]
+	const audios = [forestA, forestB, owl, howl]
 
 	audios.forEach(audio=>{
 
@@ -301,15 +345,11 @@ async function startNight(){
 
 	clearInterval(window.owlInterval)
 	
-	if(forest){
+	setInterval(()=>{
 
-	forest.loop = true
-	forest.volume = 0.8
-	forest.currentTime = 0
+    startCrossfade()
 
-	forest.play().catch(()=>{})
-
-	}	
+}, (forestA.duration*1000) - fadeTime)
 
 	window.owlInterval = setInterval(() => {
 
