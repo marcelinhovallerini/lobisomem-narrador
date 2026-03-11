@@ -17,7 +17,8 @@ const audioFiles = {
 
 begin:"narrator_begin.mp3",
 
-sentinelRole:"narrator_sentinel_wakeup.mp3",
+sentinelWakeUp:"narrator_sentinel_wakeup.mp3",
+sentinelOut:"narrator_sentinel_out.mp3",
 
 doppelWakeUp:"narrator_doppel_wakeup.mp3",
 doppelSentinel:"narrator_doppel_sentinel.mp3",
@@ -49,8 +50,11 @@ werewolfDream:"narrator_werewolf_dream.mp3",
 werewolfJustOne:"narrator_werewolf_justone.mp3",
 werewolfOut:"narrator_werewolf_out.mp3",
 
-alphaRole:"narrator_alpha_wakeup.mp3",
-mysticRole:"narrator_mystic_wakeup.mp3",
+alphaWakeUp:"narrator_alpha_wakeup.mp3",
+alphaOut:"narrator_alpha_out.mp3",
+
+mysticWakeUp:"narrator_mystic_wakeup.mp3",
+mysticOut:"narrator_mystic_out.mp3",
 
 minionWakeUp:"narrator_minion_wakeup.mp3",
 minionOut:"narrator_minion_out.mp3",
@@ -61,16 +65,20 @@ masonsOut:"narrator_masons_out.mp3",
 seerWakeUp:"narrator_seer_wakeup.mp3",
 seerOut:"narrator_seer_out.mp3",
 
-apprenticeRole:"narrator_apprentice_wakeup.mp3",
+apprenticeWakeUp:"narrator_apprentice_wakeup.mp3",
+apprenticeOut:"narrator_apprentice_out.mp3",
 
-piRole:"narrator_pi_wakeup.mp3",
+piWakeUp:"narrator_pi_wakeup.mp3",
+piOut:"narrator_pi_out.mp3",
 
 robberWakeUp:"narrator_robber_wakeup.mp3",
 robberOut:"narrator_robber_out.mp3",
 
-witchRole:"narrator_witch_wakeup.mp3",
+witchWakeUp:"narrator_witch_wakeup.mp3",
+witchOut:"narrator_witch_out.mp3",
 
-idiotRole:"narrator_idiot_wakeup.mp3",
+idiotWakeUp:"narrator_idiot_wakeup.mp3",
+idiotOut:"narrator_idiot_out.mp3",
 
 troublemakerWakeUp:"narrator_troublemaker_wakeup.mp3",
 troublemakerOut:"narrator_troublemaker_out.mp3",
@@ -81,9 +89,11 @@ drunkOut:"narrator_drunk_out.mp3",
 insomniacWakeUp:"narrator_insomniac_wakeup.mp3",
 insomniacOut:"narrator_insomniac_out.mp3",
 
-revealerRole:"narrator_revealer_wakeup.mp3",
+revealerWakeUp:"narrator_revealer_wakeup.mp3",
+revealerOut:"narrator_revealer_out.mp3",
 
-curatorRole:"narrator_curator_wakeup.mp3",
+curatorWakeUp:"narrator_curator_wakeup.mp3",
+curatorOut:"narrator_curator_out.mp3",
 
 everyoneWakeUp:"narrator_everyone_wakeup.mp3",
 discussionEnd:"narrator_discussion_end.mp3",
@@ -195,37 +205,19 @@ function play(sound){
 
 			voicePlayer.pause()
 			voicePlayer.currentTime = 0
-			voicePlayer.src = file
-			voicePlayer.load()
 
 			const endHandler = () => {
-				clearTimeout(safety)
 				voicePlayer.removeEventListener("ended", endHandler)
 				resolve()
 			}
 
-			const safety = setTimeout(()=>{
-				voicePlayer.removeEventListener("ended", endHandler)
-				resolve()
-			},10000)
+			voicePlayer.addEventListener("ended", endHandler, {once:true})
 
-			voicePlayer.addEventListener("ended", endHandler)
+			voicePlayer.src = file
 
-			const playAudio = () => {
-
-				const p = voicePlayer.play()
-
-				if(p){
-					p.catch(()=>resolve())
-				}
-
-			}
-
-			if(voicePlayer.readyState >= 2){
-				playAudio()
-			}else{
-				voicePlayer.onloadeddata = playAudio
-			}
+			voicePlayer.play()
+				.then(()=>{})
+				.catch(()=>resolve())
 
 		})
 
@@ -290,18 +282,13 @@ async function startNight(){
 	
 	if(forest){
 
-	forest.volume = 0.6
+	forest.loop = true
+	forest.volume = 0.8
+	forest.currentTime = 0
 
-	const playForest = () => {
-		forest.currentTime = 0
-		forest.play().catch(()=>{})
-	}
+	forest.play().catch(()=>{})
 
-	playForest()
-
-	forest.addEventListener("ended", playForest)
-
-}
+	}	
 
 	window.owlInterval = setInterval(() => {
 
@@ -319,7 +306,9 @@ async function startNight(){
 
 	if(selectedRoles.sentinel){
 
-	await play("sentinelRole")
+	await play("sentinelWakeUp")
+	await wait(5000)
+	await play("sentinelOut")
 	await wait(2000)
 
 	}
@@ -471,14 +460,18 @@ async function startNight(){
 
 	if(selectedRoles.alpha){
 
-	await play("alphaRole")
+	await play("alphaWakeUp")
+	await wait(5000)
+	await play("alphaOut")
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.mystic){
 
-	await play("mysticRole")
+	await play("mysticWakeUp")
+	await wait(5000)
+	await play("mysticOut")
 	await wait(2000)
 
 	}
@@ -530,14 +523,18 @@ async function startNight(){
 
 	if(selectedRoles.apprentice){
 
-	await play("apprenticeRole")
+	await play("apprenticeWakeUp")
+	await wait(5000)
+	await play("apprenticeOut")
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.pi){
 
-	await play("piRole")
+	await play("piWakeUp")
+	await wait(5000)
+	await play("piOut")
 	await wait(2000)
 
 	}
@@ -555,14 +552,18 @@ async function startNight(){
 
 	if(selectedRoles.witch){
 
-	await play("witchRole")
+	await play("witchWakeUp")
+	await wait(5000)
+	await play("witchOut")
 	await wait(2000)
 
 	}
 
 	if(selectedRoles.idiot){
 
-	await play("idiotRole")
+	await play("idiotWakeUp")
+	await wait(5000)
+	await play("idiotOut")
 	await wait(2000)
 
 	}
@@ -611,7 +612,9 @@ async function startNight(){
 
 		if(selectedRoles.revealer){
 
-		await play("revealerRole")
+		await play("revealerWakeUp")
+		await wait(5000)
+		await play("revealerOut")
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -628,7 +631,9 @@ async function startNight(){
 
 		if(selectedRoles.curator){
 
-		await play("curatorRole")
+		await play("curatorWakeUp")
+		await wait(5000)
+		await play("curatorOut")
 		await wait(2000)
 
 		if(selectedRoles.doppelganger){
@@ -659,63 +664,3 @@ async function startNight(){
 	await play("vote")
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
