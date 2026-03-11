@@ -36,38 +36,82 @@ z-index:-1;
 
 }
 
-.fog{
 
+
+.fog-container{
 position:fixed;
-
 top:0;
 left:0;
-
-width:300%;
+width:100%;
 height:100%;
-
-background:
-radial-gradient(circle at 20% 50%, rgba(255,255,255,0.15), transparent 60%),
-radial-gradient(circle at 60% 40%, rgba(255,255,255,0.22), transparent 60%),
-radial-gradient(circle at 80% 70%, rgba(255,255,255,0.34), transparent 60%);
-
-animation:fogMove 100s linear infinite;
-
 pointer-events:none;
-
+overflow:hidden;
 z-index:0;
+}
+
+.fog{
+position:absolute;
+width:200%;
+height:200%;
+
+background: radial-gradient(
+circle,
+rgba(255,255,255,0.12) 0%,
+rgba(255,255,255,0.07) 30%,
+rgba(255,255,255,0.03) 50%,
+transparent 70%
+);
+
+filter: blur(60px);
+}
+
+/* camada 1 */
+
+.fog1{
+top:-30%;
+left:-30%;
+animation:fogMove1 60s linear infinite;
+}
+
+/* camada 2 */
+
+.fog2{
+top:-40%;
+left:-20%;
+animation:fogMove2 80s linear infinite;
+}
+
+/* camada 3 */
+
+.fog3{
+top:-20%;
+left:-40%;
+animation:fogMove3 100s linear infinite;
+}
+
+/* animações */
+
+@keyframes fogMove1{
+
+0%{ transform:translate(0,0) }
+50%{ transform:translate(80px,40px) }
+100%{ transform:translate(0,0) }
 
 }
 
-@keyframes fogMove{
+@keyframes fogMove2{
 
-0%{
-transform:translateX(0);
+0%{ transform:translate(0,0) }
+50%{ transform:translate(-60px,50px) }
+100%{ transform:translate(0,0) }
+
 }
 
-100%{
-transform:translateX(-50%);
-}
+@keyframes fogMove3{
+
+0%{ transform:translate(0,0) }
+50%{ transform:translate(70px,-40px) }
+100%{ transform:translate(0,0) }
 
 }
 
@@ -635,4 +679,3 @@ animation:pulse 1s infinite;
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
-
