@@ -523,7 +523,7 @@ z-index:40;
 
 width:250px;
 
-padding-top: 220px
+padding-top: 250px
 
 border-radius:14px;
 
@@ -635,3 +635,4 @@ animation:pulse 1s infinite;
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
+
