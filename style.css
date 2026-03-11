@@ -1,3 +1,8 @@
+*{
+word-break: break-word;
+overflow-wrap: break-word;
+}
+
 body{
 margin:0;
 
@@ -8,6 +13,9 @@ background-attachment:fixed;
 
 font-family:sans-serif;
 color:white;
+
+white-space: normal;
+
 }
 
 body::before{
@@ -210,6 +218,41 @@ box-shadow:0 0 6px #ffd84d, 0 0 12px #ffd84d;
 
 }
 
+h1{
+text-align:center;
+margin-top:20px;
+
+text-shadow:
+0 0 6px rgba(255,255,255,0.6),
+0 0 12px rgba(255,255,255,0.3);
+}
+
+#roles-title{
+text-align:center;
+margin-bottom:10px;
+
+text-shadow:
+0 0 5px rgba(255,255,255,0.5),
+0 0 10px rgba(255,255,255,0.25);
+}
+
+.header{
+
+position:sticky;
+top:0;
+
+z-index:100;
+
+padding:12px 0;
+
+background:rgba(15,25,40,0.05);
+
+backdrop-filter:blur(8px);
+-webkit-backdrop-filter:blur(8px);
+
+}
+
+
 /* GRID */
 
 .roles{
@@ -247,19 +290,30 @@ margin-bottom:10px;
 
 .top-controls button{
 
-padding:12px 18px;
+width:160px;
+height:52px;
 
-font-size:16px;
+font-size:20px;
+font-weight:bold;
 
 border:none;
 border-radius:10px;
 
-background:#facc15;
-color:black;
-
-font-weight:bold;
-
 cursor:pointer;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+color:white;
+
+transition:all 0.2s ease;
+
+}
+
+.top-controls button:not(:disabled):hover{
+
+transform:scale(1.05);
 
 }
 
@@ -432,7 +486,7 @@ font-size:13px;
 font-weight:bold;
 line-height:1.2;
 
-white-space:nowrap;
+white-space: normal;
 
 color:white;
 
@@ -448,15 +502,60 @@ rgba(0,0,0,0)
 
 }
 
+.active-role{
+
+display:none;
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+z-index:40;
+
+}
+
+.active-role img{
+
+width:300px;
+
+border-radius:14px;
+
+box-shadow:0 0 30px rgba(255,255,0,0.6);
+
+}
+
+.active-role div{
+
+margin-top:12px;
+
+font-size:40px;
+
+font-weight:bold;
+
+color:white;
+
+text-shadow:0 0 10px black;
+
+}
+
 .start{
 
 padding:20px;
 font-size:25px;
 border:none;
 border-radius:10px;
-background:#00aa55;
 color:white;
 cursor:pointer;
+background:#16a34a;
+
+box-shadow:
+0 0 10px rgba(22,163,74,0.8),
+0 0 20px rgba(22,163,74,0.5);
 
 }
 
@@ -466,9 +565,23 @@ padding:20px;
 font-size:25px;
 border:none;
 border-radius:10px;
-background:#FF0000;
 color:white;
 cursor:pointer;
+background:#ef4444;
+
+box-shadow:
+0 0 10px rgba(239,68,68,0.8),
+0 0 20px rgba(239,68,68,0.5);
+
+}
+
+button:disabled{
+
+opacity:0.5;
+
+cursor:not-allowed;
+
+box-shadow:none;
 
 }
 
