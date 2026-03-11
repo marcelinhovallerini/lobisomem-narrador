@@ -103,71 +103,59 @@ vote:"narrator_vote.mp3"
 
 const selectedRoles = {}
 
-const roleLimits = {
-	werewolf: 2,
-	mason: 2,
-	villager: 3,
-	seer: 1,
-	robber: 1,
-	troublemaker: 1,
-	drunk: 1,
-	insomniac: 1,
-	tanner: 1,
-	hunter: 1,
-	minion: 1,
-	doppelganger: 1,
-	alpha: 1,
-	mystic: 1,
-	dream: 1,
-	sentinel: 1,
-	pi: 1,
-	witch: 1,
-	apprentice: 1,
-	idiot: 1,
-	revealer: 1,
-	curator: 1
+function toggleRole(element, role, max){
+
+if(!selectedRoles[role]){
+selectedRoles[role] = 0
 }
 
-function updateCount(button, count){
+selectedRoles[role]++
 
-	let span = button.querySelector(".count")
+if(selectedRoles[role] > max){
+selectedRoles[role] = 0
+}
 
-	if(!span){
-		span = document.createElement("span")
-		span.className = "count"
-		button.appendChild(span)
-	}
+const count = selectedRoles[role]
 
-	span.textContent = " x" + count
+document.getElementById(role+"Count").textContent = count
+
+if(count === 0){
+element.classList.remove("selected")
+}else{
+element.classList.add("selected")
+}
 
 }
 
-function toggleRole(button, role){
+function spawnEyes(){
 
-	const limit = roleLimits[role] || 1
+const layer = document.querySelector(".eyes-layer")
 
-	if(!selectedRoles[role]){
-		selectedRoles[role] = 1
-		button.classList.add("selected")
+const eyes = document.createElement("div")
+eyes.className = "eyes"
 
-	}else{
+const left = document.createElement("div")
+left.className = "eye"
 
-	if(selectedRoles[role] >= limit){
+const right = document.createElement("div")
+right.className = "eye"
 
-		delete selectedRoles[role]
-		button.classList.remove("selected")
-		button.querySelector(".count")?.remove()
-		return
+eyes.appendChild(left)
+eyes.appendChild(right)
 
-	}
+eyes.style.left = Math.random()*80 + "%"
+eyes.style.top = Math.random()*80 + "%"
 
-	selectedRoles[role]++
+layer.appendChild(eyes)
 
-	}
-
-	updateCount(button, selectedRoles[role])
+setTimeout(()=>{
+eyes.remove()
+},4000)
 
 }
+
+setInterval(spawnEyes,8000)
+
 
 let audioQueue = Promise.resolve()
 
@@ -233,36 +221,30 @@ function wait(ms){
 
 }
 
-function iniciarTimerVisual(){
+let timerInterval
 
-	return new Promise(resolve=>{
+function startTimer(seconds){
 
-		let tempo = 300;
-		const timerEl = document.getElementById("timer");
+	let time = seconds
 
-		const intervalo = setInterval(()=>{
+	const timer = document.getElementById("timer")
 
-			let minutos = Math.floor(tempo/60);
-			let segundos = tempo % 60;
+	timerInterval = setInterval(()=>{
 
-			timerEl.innerText =
-				String(minutos).padStart(2,"0")+":"+
-				String(segundos).padStart(2,"0");
+		let min = Math.floor(time/60)
+		let sec = time%60
 
-			if(tempo <= 30){
-				timerEl.classList.add("timer-warning");
-			}
+		timer.innerText =
+		String(min).padStart(2,"0")+":"+
+		String(sec).padStart(2,"0")
 
-			if(tempo <= 0){
-				clearInterval(intervalo)
-				resolve() 
-			}
+		time--
 
-			tempo--
+		if(time < 0){
+		clearInterval(timerInterval)
+		}
 
-		},1000)
-
-	})
+	},1000)
 
 }
 
@@ -300,9 +282,9 @@ async function startNight(){
 
 	},30000)
 
-	await wait(3000)
+	await wait(2000)
 	await play("begin")
-	await wait(3000)
+	await wait(2000)
 
 	if(selectedRoles.sentinel){
 
@@ -651,17 +633,19 @@ async function startNight(){
 
 	await play("everyoneWakeUp")
 
-	document.getElementById("roles-container").style.display = "none";
-	document.getElementById("start-container").style.display = "none";
-	document.getElementById("roles-title").style.display = "none";
-	document.getElementById("timer-container").style.display = "block";
+	document.querySelector(".roles").style.display = "none"
+
+	document.getElementById("roles-title").style.display = "none"
+
+	document.getElementById("startButton").style.display = "none"
+
+	document.getElementById("timer").style.display = "block"
 
 
-	await iniciarTimerVisual();
+	await startTime(300);
 
 	await play("discussionEnd")
 	await wait(2000)
 	await play("vote")
 
 }
-
