@@ -300,6 +300,8 @@ background:rgba(15,25,40,0.05);
 backdrop-filter:blur(8px);
 -webkit-backdrop-filter:blur(8px);
 
+padding-top: calc(env(safe-area-inset-top) + 20px)
+
 }
 
 
@@ -704,3 +706,4 @@ animation:pulse 1s infinite;
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
+
