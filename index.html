@@ -9,15 +9,21 @@
   
 <body>
 
-<h1>🐺 Narrador Werewolf</h1>
+<div class="header">
 
-<h2 id="roles-title">Selecione os personagens</h2>
+<h1>One Night Ultimate Werewolf</h1>
 
 <div class="top-controls">
 
-<button id="startButton" onclick="startNight()">Iniciar Noite</button>
+<button class = "start" id="startButton" onclick="startNight()">Iniciar Noite</button>
 
-<button id="resetButton" onclick="resetGame()">Reiniciar</button>
+<button class = "reset" id="resetButton" onclick="resetGame()">Reiniciar</button>
+
+</div>
+
+<h2 id="roles-title">
+Selecione os personagens (<span id="playerCount">0</span>)
+</h2>
 
 </div>
 
@@ -28,6 +34,14 @@
 <div class="fog"></div>
 <div class="fireflies"></div>
 <div class="eyes-layer"></div>
+
+<div id="activeRole" class="active-role">
+
+<img id="activeRoleImage">
+
+<div id="activeRoleName"></div>
+
+</div>
 
 <div class="roles">
 
