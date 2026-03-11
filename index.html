@@ -13,45 +13,510 @@
 
 <h2 id="roles-title">Selecione os personagens</h2>
 
-<div id="roles-container" class="roles">
+<div class="top-controls">
 
-	<button class="role" onclick="toggleRole(this,'sentinel')">🛡 Sentinela</button>
-	<button class="role" onclick="toggleRole(this,'doppelganger')">😶‍🌫️ Doppelganger</button>
-	<button class="role" onclick="toggleRole(this,'werewolf')">🐺 Lobisomem</button>
-	<button class="role" onclick="toggleRole(this,'alpha')">🐺💪 Lobisomem Alfa</button>
-	<button class="role" onclick="toggleRole(this,'mystic')">🐺🔮 Lobisomem Místico</button>
-	<button class="role" onclick="toggleRole(this,'dream')">🐺💤 Lobisomem dos Sonhos</button>
-	<button class="role" onclick="toggleRole(this,'minion')">😈 Minion</button>
-	<button class="role" onclick="toggleRole(this,'mason')">💍 Maçon</button>
-	<button class="role" onclick="toggleRole(this,'seer')">🔮 Vidente</button>
-	<button class="role" onclick="toggleRole(this,'apprentice')">🔮👶 Aprendiz de Vidente</button>
-	<button class="role" onclick="toggleRole(this,'pi')">👻 Investigador Paranormal</button>
-	<button class="role" onclick="toggleRole(this,'robber')">🗡️ Ladrão</button>
-	<button class="role" onclick="toggleRole(this,'witch')">🧹 Bruxa</button>
-	<button class="role" onclick="toggleRole(this,'idiot')">🤡 Idiota da Vila</button>
-	<button class="role" onclick="toggleRole(this,'troublemaker')">🔀 Encrenqueiro</button>
-	<button class="role" onclick="toggleRole(this,'drunk')">🍺 Bêbado</button>
-	<button class="role" onclick="toggleRole(this,'insomniac')">👁️ Insone</button>
-	<button class="role" onclick="toggleRole(this,'revealer')">🌟 Revelador</button>
-	<button class="role" onclick="toggleRole(this,'curator')">🧪 Curador</button>
-	<button class="role" onclick="toggleRole(this,'tanner')">🔥 Tanner</button>
-	<button class="role" onclick="toggleRole(this,'hunter')">🏹 Caçador</button>
-	<button class="role" onclick="toggleRole(this,'villager')">😐 Aldeão</button>
+<button id="startButton" onclick="startNight()">Iniciar Noite</button>
+
+<button id="resetButton" onclick="resetGame()">Reiniciar</button>
+
+</div>
+
+<div id="timer" class="timer">
+05:00
+</div>
+
+<div class="fog"></div>
+<div class="fireflies"></div>
+<div class="eyes-layer"></div>
+
+<div class="roles">
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'werewolf',2)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="werewolf.jpg">
+</div>
+
+<div class="role-name">Lobisomem</div>
+
+</div>
+
+<div class="badge">
+<span id="werewolfCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'robber',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="robber.jpg">
+</div>
+
+<div class="role-name">Ladrão</div>
+
+</div>
+
+<div class="badge">
+<span id="robberCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'seer',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="seer.jpg">
+</div>
+
+<div class="role-name">Vidente</div>
+
+</div>
+
+<div class="badge">
+<span id="seerCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'troublemaker',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="troublemaker.jpg">
+</div>
+
+<div class="role-name">Encrenqueira</div>
+
+</div>
+
+<div class="badge">
+<span id="troublemakerCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'insomniac',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="insomniac.jpg">
+</div>
+
+<div class="role-name">Insone</div>
+
+</div>
+
+<div class="badge">
+<span id="insomniacCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'minion',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="minion.jpg">
+</div>
+
+<div class="role-name">Minion</div>
+
+</div>
+
+<div class="badge">
+<span id="minionCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'doppelganger',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="doppelganger.jpg">
+</div>
+
+<div class="role-name">Doppelganger</div>
+
+</div>
+
+<div class="badge">
+<span id="doppelgangerCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'mason',2)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="mason.jpg">
+</div>
+
+<div class="role-name">Maçon</div>
+
+</div>
+
+<div class="badge">
+<span id="masonCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'drunk',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="drunk.jpg">
+</div>
+
+<div class="role-name">Bêbado</div>
+
+</div>
+
+<div class="badge">
+<span id="drunkCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'hunter',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="hunter.jpg">
+</div>
+
+<div class="role-name">Caçador</div>
+
+</div>
+
+<div class="badge">
+<span id="hunterCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'tanner',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="tanner.jpg">
+</div>
+
+<div class="role-name">Tanner</div>
+
+</div>
+
+<div class="badge">
+<span id="tannerCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'villager',3)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="villager.jpg">
+</div>
+
+<div class="role-name">Aldeão</div>
+
+</div>
+
+<div class="badge">
+<span id="villagerCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'sentinel',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="sentinel.jpg">
+</div>
+
+<div class="role-name">Sentinela</div>
+
+</div>
+
+<div class="badge">
+<span id="sentinelCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'alpha',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="alpha.jpg">
+</div>
+
+<div class="role-name">Lobisomem Alfa</div>
+
+</div>
+
+<div class="badge">
+<span id="alphaCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'mystic',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="mystic.jpg">
+</div>
+
+<div class="role-name">Lobisomem Místico</div>
+
+</div>
+
+<div class="badge">
+<span id="mysticCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'dream',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="dream.jpg">
+</div>
+
+<div class="role-name">Lobisomem dos Sonhos</div>
+
+</div>
+
+<div class="badge">
+<span id="dreamCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'apprentice',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="apprentice.jpg">
+</div>
+
+<div class="role-name">Aprendiz de Vidente</div>
+
+</div>
+
+<div class="badge">
+<span id="apprenticeCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'pi',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="pi.jpg">
+</div>
+
+<div class="role-name">Investigador Paranormal</div>
+
+</div>
+
+<div class="badge">
+<span id="piCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'witch',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="witch.jpg">
+</div>
+
+<div class="role-name">Bruxa</div>
+
+</div>
+
+<div class="badge">
+<span id="witchCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'idiot',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="idiot.jpg">
+</div>
+
+<div class="role-name">Idiota da Vila</div>
+
+</div>
+
+<div class="badge">
+<span id="idiotCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'revealer',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="revealer.jpg">
+</div>
+
+<div class="role-name">Revelador</div>
+
+</div>
+
+<div class="badge">
+<span id="revealerCount">0</span>
+</div>
+
+</div>
+
+
+
+
+
+<div class="role" onclick="toggleRole(this,'curator',1)">
+
+<div class="card-content">
+
+<div class="image-wrapper">
+<img src="curator.jpg">
+</div>
+
+<div class="role-name">Curador</div>
+
+</div>
+
+<div class="badge">
+<span id="curatorCount">0</span>
+</div>
 
 </div>
 
 <br>
 
-
-<button id="start-container" class="start" onclick="startNight()">🌙 Iniciar Noite</button>
-<button class="reset" onclick="resetGame()">Reiniciar</button>
-
-<div id="timer-container" style="display:none;">
-
-    <div id="timer-label">Tempo de discussão</div>
-    <div id="timer">05:00</div>
-
-</div>
 
 <audio id="forestSound" src="floresta.mp3"></audio>
 <audio id="owlSound" src="owl.mp3"></audio>
