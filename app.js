@@ -312,15 +312,24 @@ function startTimer(duration){
 		String(minutes).padStart(2,"0") + ":" +
 		String(seconds).padStart(2,"0")
 
-		time--
+		if(time <= 10){
+		timer.style.color = "#ff4444"
+		timer.style.textShadow = "0 0 10px red"
+		}
 
-		if(time < 0){
+		if(time <= 0){
 
-		clearInterval(timerInterval)
+			clearInterval(timerInterval)
 
-		discussionFinished()
+			timer.textContent = "00:00"
+
+			discussionFinished()
+
+			return
 
 		}
+
+		time--
 
 	},1000)
 
@@ -778,13 +787,13 @@ async function startNight(){
 
 	await startTimer(300);
 
+}
 
-	async function discussionFinished(){
+
+async function discussionFinished(){
 
 	await play("discussionEnd")
 	await wait(2000)
 	await play("vote")
-
-	}
 
 }
