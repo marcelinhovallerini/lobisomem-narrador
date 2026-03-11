@@ -168,16 +168,37 @@ document.getElementById("playerCount").textContent = total
 
 }
 
-function showRole(roleName, image){
+function showRole(roleName, image, copiedRoleName = null, copiedImage = null){
 
-const container = document.getElementById("activeRole")
-const img = document.getElementById("activeRoleImage")
-const name = document.getElementById("activeRoleName")
+	const container = document.getElementById("activeRole")
+	const img = document.getElementById("activeRoleImage")
+	const name = document.getElementById("activeRoleName")
 
-img.src = image
-name.textContent = roleName
+	const secondImg = document.getElementById("activeRoleImage2")
+	const arrow = document.getElementById("activeRoleArrow")
 
-container.style.display = "block"
+	img.src = image
+	name.textContent = roleName
+
+	if(secondImg) secondImg.style.display = "none"
+	if(arrow) arrow.style.display = "none"
+
+	if(copiedRoleName && copiedImage){
+
+		name.textContent = roleName + " → " + copiedRoleName
+
+	if(secondImg){
+	secondImg.src = copiedImage
+	secondImg.style.display = "block"
+	}
+
+	if(arrow){
+	arrow.style.display = "block"
+	}
+
+	}
+
+	container.style.display = "block"
 
 }
 
@@ -395,12 +416,16 @@ async function startNight(){
 
 		if(selectedRoles.sentinel){
 
+		showRole("Doppelganger","doppelganger.jpg","Sentinela","sentinel.jpg")
+
 		await play("doppelSentinel")
 		await wait(5000)
 			
 		}
 
 		if(selectedRoles.alpha){
+
+		showRole("Doppelganger","doppelganger.jpg","Lobisomem Alfa","alpha.jpg")
 
 		await play("doppelAlpha")
 		await wait(5000)
@@ -409,12 +434,16 @@ async function startNight(){
 
 		if(selectedRoles.mystic){
 
+		showRole("Doppelganger","doppelganger.jpg","Lobisomem Místico","mystic.jpg")
+
 		await play("doppelMystic")
 		await wait(5000)
 			
 		}
 
 		if(selectedRoles.minion){
+
+		showRole("Doppelganger","doppelganger.jpg","Minion","minion.jpg")
 
 		await play("doppelMinion")
 		await wait(5000)
@@ -423,12 +452,16 @@ async function startNight(){
 
 		if(selectedRoles.seer){
 
+		showRole("Doppelganger","doppelganger.jpg","Vidente","seer.jpg")
+
 		await play("doppelSeer")
 		await wait(5000)
 
 		}
 
 		if(selectedRoles.apprentice){
+
+		showRole("Doppelganger","doppelganger.jpg","Aprendiz de Vidente","apprentice.jpg")
 
 		await play("doppelApprentice")
 		await wait(5000)
@@ -437,12 +470,16 @@ async function startNight(){
 
 		if(selectedRoles.pi){
 
+		showRole("Doppelganger","doppelganger.jpg","Investigador Paranormal","pi.jpg")
+
 		await play("doppelPi")
 		await wait(5000)
 
 		}
 
 		if(selectedRoles.robber){
+
+		showRole("Doppelganger","doppelganger.jpg","Ladrão","robber.jpg")
 
 		await play("doppelRobber")
 		await wait(5000)
@@ -451,6 +488,8 @@ async function startNight(){
 
 		if(selectedRoles.witch){
 
+		showRole("Doppelganger","doppelganger.jpg","Bruxa","witch.jpg")
+
 		await play("doppelWitch")
 		await wait(5000)
 
@@ -458,12 +497,16 @@ async function startNight(){
 
 		if(selectedRoles.idiot){
 
+		showRole("Doppelganger","doppelganger.jpg","Idiota da Vila","idiot.jpg")
+		
 		await play("doppelIdiot")
 		await wait(7000)
 
 		}
 
 		if(selectedRoles.troublemaker){
+
+		showRole("Doppelganger","doppelganger.jpg","Encrenqueira","troublemaker.jpg")
 
 		await play("doppelTroublemaker")
 		await wait(5000)
@@ -472,10 +515,14 @@ async function startNight(){
 
 		if(selectedRoles.drunk){
 
+		showRole("Doppelganger","doppelganger.jpg","Bêbado","drunk.jpg")
+
 		await play("doppelDrunk")
 		await wait(5000)
 
 		}
+
+	showRole("Doppelganger","doppelganger.jpg")
 	
 	await play("doppelOut")
 	hideRole()
@@ -498,9 +545,13 @@ async function startNight(){
 
 		if(selectedRoles.doppelganger){
 
+			showRole("Doppelganger","doppelganger.jpg","Lobisomem","werewolf.jpg")
+
 			await play("doppelWerewolf")
 
 		}
+
+		showRole("Lobisomens","werewolf.jpg")
 
 		await play("werewolfJustOne")
 		await wait(5000)
@@ -526,10 +577,17 @@ async function startNight(){
 
 		if(selectedRoles.doppelganger){
 
+			
+			showRole("Doppelganger","doppelganger.jpg","Lobisomem","werewolf.jpg")
 			await play("doppelWerewolf")
+
+
+			showRole("Doppelganger","doppelganger.jpg","Lobisomem dos Sonhos","dream.jpg")
 			await play("doppelDream")
 
 		}
+
+		showRole("Lobisomens","werewolf.jpg")
 
 		await play("werewolfJustOne")
 		await wait(5000)
@@ -569,8 +627,12 @@ async function startNight(){
 		await play("minionWakeUp")
 
 		if(selectedRoles.doppelganger){
+		
+		showRole("Doppelganger","doppelganger.jpg","Minion","minion.jpg")
 
 		await play("doppelWerewolfMinion")
+
+		hideRole()
 
 		}
 		
@@ -591,8 +653,12 @@ async function startNight(){
 
 		if(selectedRoles.doppelganger){
 
+			showRole("Doppelganger","doppelganger.jpg","Maçon","mason.jpg")
+
 			await play("doppelMason")
 
+			hideRole()
+			
 		}
 
     	await wait(5000)
@@ -719,10 +785,13 @@ async function startNight(){
 
 		if(selectedRoles.doppelganger){
 
+			showRole("Doppelganger","doppelganger.jpg","Insone","insomniac.jpg")
+
 			await play("doppelInsomniac")
 			await wait(5000)
 			
 			await play("doppelInsomniacOut")
+			hideRole()
 			await wait(2000)
 
 		}
@@ -741,10 +810,13 @@ async function startNight(){
 
 		if(selectedRoles.doppelganger){
 
+			showRole("Doppelganger","doppelganger.jpg","Revelador","revealer.jpg")
+
 			await play("doppelRevealer")
 			await wait(5000)
 			
 			await play("doppelRevealerOut")
+			hideRole()
 			await wait(2000)
 
 		}
@@ -763,10 +835,13 @@ async function startNight(){
 
 		if(selectedRoles.doppelganger){
 
+			showRole("Doppelganger","doppelganger.jpg","Curador","curator.jpg")
+
 			await play("doppelCurator")
 			await wait(5000)
 			
 			await play("doppelCuratorOut")
+			hideRole()
 			await wait(2000)
 
 		}
