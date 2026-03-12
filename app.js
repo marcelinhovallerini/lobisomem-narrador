@@ -125,6 +125,10 @@ function toggleRole(element, role, max){
 
 	selectedRoles[role]++
 
+	if(role === "mason" && selectedRoles[role] === 1){
+	selectedRoles[role] = 2
+	}
+
 	if(selectedRoles[role] > max){
 	selectedRoles[role] = 0
 	}
@@ -414,39 +418,82 @@ function startTimer(duration){
 
 function showRolesInGame(){
 
-const container = document.getElementById("rolesInGame")
-container.innerHTML = ""
+	const container = document.getElementById("rolesInGame")
+	container.innerHTML = ""
 
-const evil = ["werewolf","alpha","mystic","dream","minion"]
-const good = [
-"sentinel","mason","seer","apprentice","pi",
-"robber","witch","idiot","troublemaker",
-"drunk","insomniac","revealer","curator",
-"hunter","villager"
-]
+	const evil = ["werewolf","alpha","mystic","dream","minion"]
+	const good = [
+	"sentinel","mason","seer","apprentice","pi",
+	"robber","witch","idiot","troublemaker",
+	"drunk","insomniac","revealer","curator",
+	"hunter","villager"
+	]
 
-document.querySelectorAll(".role.selected").forEach(role => {
+	const roleNamesPT = {
 
-const img = role.querySelector("img")
-const roleName = role.getAttribute("onclick").match(/'(.*?)'/)[1]
+	werewolf: "Lobisomem",
+	alpha: "Alfa",
+	mystic: "Místico",
+	dream: "Sonhos",
+	minion: "Minion",
 
-const circle = document.createElement("div")
-circle.className = "role-circle"
+	sentinel: "Sentinela",
+	doppelganger: "Doppel",
+	
+	mason: "Maçom",
+	seer: "Vidente",
+	apprentice: "Aprendiz",
+	pi: "Paranormal",
 
-if(evil.includes(roleName)) circle.classList.add("evil")
-else if(good.includes(roleName)) circle.classList.add("good")
-else if(roleName === "tanner") circle.classList.add("tanner")
-else if(roleName === "doppelganger") circle.classList.add("doppel")
+	robber: "Ladrão",
+	witch: "Bruxa",
+	idiot: "Idiota",
+	troublemaker: "Encrenca",
+	drunk: "Bêbado",
 
-const icon = document.createElement("img")
-icon.src = img.src
+	insomniac: "Insone",
+	revealer: "Revelador",
+	curator: "Curador",
 
-circle.appendChild(icon)
-container.appendChild(circle)
+	hunter: "Caçador",
+	villager: "Aldeão",
+	tanner: "Tanner",
+	
+	}
 
-})
+	document.querySelectorAll(".role.selected").forEach(role => {
 
-}
+	const img = role.querySelector("img")
+	const roleName = role.getAttribute("onclick").match(/'(.*?)'/)[1]
+
+	const wrapper = document.createElement("div")
+	wrapper.className = "discussion-role"
+
+	const circle = document.createElement("div")
+	circle.className = "role-circle"
+
+	if(evil.includes(roleName)) circle.classList.add("evil")
+	else if(good.includes(roleName)) circle.classList.add("good")
+	else if(roleName === "tanner") circle.classList.add("tanner")
+	else if(roleName === "doppelganger") circle.classList.add("doppel")
+
+	const icon = document.createElement("img")
+	icon.src = img.src
+
+	circle.appendChild(icon)
+
+	const name = document.createElement("div")
+	name.className = "discussion-role-name"
+	name.textContent = roleNamesPT[roleName] || roleName
+
+	wrapper.appendChild(circle)
+	wrapper.appendChild(name)
+
+	container.appendChild(wrapper)
+
+	})
+
+	}
 
 function resetGame(){
 	location.reload();
