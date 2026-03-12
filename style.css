@@ -12,18 +12,12 @@ min-height:100svh;
 
 overflow-x:hidden;
 
-background-image:url("floresta.webp");
-background-size:cover;
-background-position:center;
-
 font-family:sans-serif;
 color:white;
 
 white-space:normal;
 
 scroll-behavior:smooth;
-
-z-index:-30;
 
 }
 
@@ -35,6 +29,23 @@ background:#000;
 body{
 overflow-y:auto;
 position:relative;
+}
+
+.background{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background-image:url("floresta.webp");
+background-size:cover;
+background-position:center;
+
+z-index:-20;
+
 }
 
 body::before{
@@ -354,11 +365,13 @@ z-index:5;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(120px,140px));
+grid-template-columns:repeat(auto-fit, minmax(140px,140px));
 
 gap:15px;
 
 justify-content:center;
+
+width:100%;
 
 }
 
