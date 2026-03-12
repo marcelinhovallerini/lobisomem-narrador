@@ -102,6 +102,7 @@ vote:"narrator_vote.mp3"
 function updateHeaderHeight(){
 
 const header = document.querySelector(".header")
+
 const height = header.offsetHeight
 
 document.documentElement.style.setProperty(
@@ -137,6 +138,22 @@ function toggleRole(element, role, max){
 	}else{
 	element.classList.add("selected")
 	}
+
+	const evil = ["werewolf","alpha","mystic","dream","minion"]
+
+	const good = [
+	"sentinel","mason","seer","apprentice","pi",
+	"robber","witch","idiot","troublemaker",
+	"drunk","insomniac","revealer","curator",
+	"hunter","villager"
+	]
+
+	element.classList.remove("evil","good","tanner","doppel")
+
+	if(evil.includes(role)) element.classList.add("evil")
+	else if(good.includes(role)) element.classList.add("good")
+	else if(role === "tanner") element.classList.add("tanner")
+	else if(role === "doppelganger") element.classList.add("doppel")
 
 	updatePlayerCount()
 
@@ -192,6 +209,8 @@ function showRole(roleName, image, copiedRoleName = null, copiedImage = null){
 	const secondImg = document.getElementById("activeRoleImage2")
 	const arrow = document.getElementById("activeRoleArrow")
 
+	const roleBox = document.querySelector(".active-role")
+
 	img.src = image
 	name.textContent = roleName
 
@@ -202,24 +221,46 @@ function showRole(roleName, image, copiedRoleName = null, copiedImage = null){
 
 		name.textContent = roleName + " → " + copiedRoleName
 
-	if(secondImg){
-	secondImg.src = copiedImage
-	secondImg.style.display = "block"
+		if(secondImg){
+			secondImg.src = copiedImage
+			secondImg.style.display = "block"
+		}
+
+		if(arrow){
+			arrow.style.display = "block"
+		}
+
 	}
 
-	if(arrow){
-	arrow.style.display = "block"
-	}
+	container.style.display = "flex"
 
-	}
+	/* animação */
 
-	container.style.display = "block"
+	roleBox.classList.remove("hide")
+	roleBox.classList.add("show")
+
+	name.classList.add("show")
+
+	setTimeout(()=>{
+		roleBox.classList.remove("show")
+		name.classList.remove("show")
+	},450)
 
 }
 
 function hideRole(){
 
-document.getElementById("activeRole").style.display = "none"
+	const container = document.getElementById("activeRole")
+	const roleBox = document.querySelector(".active-role")
+
+	roleBox.classList.add("hide")
+
+	setTimeout(()=>{
+
+		container.style.display = "none"
+		roleBox.classList.remove("hide")
+
+	},350)
 
 }
 
@@ -368,6 +409,42 @@ function startTimer(duration){
 		time--
 
 	},1000)
+
+}
+
+function showRolesInGame(){
+
+const container = document.getElementById("rolesInGame")
+container.innerHTML = ""
+
+const evil = ["werewolf","alpha","mystic","dream","minion"]
+const good = [
+"sentinel","mason","seer","apprentice","pi",
+"robber","witch","idiot","troublemaker",
+"drunk","insomniac","revealer","curator",
+"hunter","villager"
+]
+
+document.querySelectorAll(".role.selected").forEach(role => {
+
+const img = role.querySelector("img")
+const roleName = role.getAttribute("onclick").match(/'(.*?)'/)[1]
+
+const circle = document.createElement("div")
+circle.className = "role-circle"
+
+if(evil.includes(roleName)) circle.classList.add("evil")
+else if(good.includes(roleName)) circle.classList.add("good")
+else if(roleName === "tanner") circle.classList.add("tanner")
+else if(roleName === "doppelganger") circle.classList.add("doppel")
+
+const icon = document.createElement("img")
+icon.src = img.src
+
+circle.appendChild(icon)
+container.appendChild(circle)
+
+})
 
 }
 
@@ -874,8 +951,10 @@ async function startNight(){
 
 	document.getElementById("timer").style.display = "block"
 
+	showRolesInGame()
 
-	await startTimer(300);
+	startTimer(300);
+	
 
 }
 
