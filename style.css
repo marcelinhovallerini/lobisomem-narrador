@@ -8,7 +8,8 @@ margin:0;
 padding:0;
 
 width:100%;
-min-height:100svh;
+min-height:100vh;
+min-height:100dvh;
 
 overflow-x:hidden;
 
@@ -22,13 +23,12 @@ scroll-behavior:smooth;
 }
 
 html{
-overflow-y:scroll;
 background:transparent;
 }
 
 body{
-overflow-y:auto;
 position:relative;
+overflow-x:hidden;
 }
 
 .background{
@@ -828,5 +828,3 @@ animation:pulse 1s infinite;
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
-
-
