@@ -27,8 +27,8 @@ background:transparent;
 }
 
 body{
-position:relative;
 overflow-x:hidden;
+overflow-y:auto;
 }
 
 .background{
@@ -830,3 +830,4 @@ animation:pulse 1s infinite;
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
+
