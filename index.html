@@ -51,6 +51,8 @@ Selecione os personagens (<span id="playerCount">0</span>)
 05:00
 </div>
 
+<div id="rolesInGame"></div>
+
 </div>
 
 
@@ -59,15 +61,17 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <div class="active-role">
 
+<div class="role-card">
 <img id="activeRoleImage">
 
 <div id="activeRoleArrow" style="display:none;">→</div>
 
 <img id="activeRoleImage2" style="display:none;">
-
 </div>
 
 <div id="activeRoleName"></div>
+
+</div>
 
 </div>
 
@@ -85,7 +89,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Lobisomem -->
 
-<div class="role" onclick="toggleRole(this,'werewolf',2)">
+<div class="role evil" onclick="toggleRole(this,'werewolf',2)">
 
 <div class="card-content">
 
@@ -106,7 +110,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Lobisomem Alfa -->
 
-<div class="role" onclick="toggleRole(this,'alpha',1)">
+<div class="role evil" onclick="toggleRole(this,'alpha',1)">
 
 <div class="card-content">
 
@@ -127,7 +131,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Lobisomem Místico -->
 
-<div class="role" onclick="toggleRole(this,'mystic',1)">
+<div class="role evil" onclick="toggleRole(this,'mystic',1)">
 
 <div class="card-content">
 
@@ -148,7 +152,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Lobisomem dos Sonhos -->
 
-<div class="role" onclick="toggleRole(this,'dream',1)">
+<div class="role evil" onclick="toggleRole(this,'dream',1)">
 
 <div class="card-content">
 
@@ -169,7 +173,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Minion -->
 
-<div class="role" onclick="toggleRole(this,'minion',1)">
+<div class="role evil" onclick="toggleRole(this,'minion',1)">
 
 <div class="card-content">
 
@@ -199,7 +203,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Sentinela -->
 
-<div class="role" onclick="toggleRole(this,'sentinel',1)">
+<div class="role good" onclick="toggleRole(this,'sentinel',1)">
 
 <div class="card-content">
 
@@ -220,7 +224,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Doppelganger -->
 
-<div class="role" onclick="toggleRole(this,'doppelganger',1)">
+<div class="role doppel" onclick="toggleRole(this,'doppelganger',1)">
 
 <div class="card-content">
 
@@ -252,7 +256,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Mason -->
 
-<div class="role" onclick="toggleRole(this,'mason',2)">
+<div class="role good" onclick="toggleRole(this,'mason',2)">
 
 <div class="card-content">
 
@@ -273,7 +277,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Vidente -->
 
-<div class="role" onclick="toggleRole(this,'seer',1)">
+<div class="role good" onclick="toggleRole(this,'seer',1)">
 
 <div class="card-content">
 
@@ -294,7 +298,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Aprendiz de Vidente -->
 
-<div class="role" onclick="toggleRole(this,'apprentice',1)">
+<div class="role good" onclick="toggleRole(this,'apprentice',1)">
 
 <div class="card-content">
 
@@ -315,7 +319,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Investigador Paranormal -->
 
-<div class="role" onclick="toggleRole(this,'pi',1)">
+<div class="role good" onclick="toggleRole(this,'pi',1)">
 
 <div class="card-content">
 
@@ -345,7 +349,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Ladrão -->
 
-<div class="role" onclick="toggleRole(this,'robber',1)">
+<div class="role good" onclick="toggleRole(this,'robber',1)">
 
 <div class="card-content">
 
@@ -366,7 +370,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Bruxa -->
 
-<div class="role" onclick="toggleRole(this,'witch',1)">
+<div class="role good" onclick="toggleRole(this,'witch',1)">
 
 <div class="card-content">
 
@@ -387,7 +391,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Idiota da Vila -->
 
-<div class="role" onclick="toggleRole(this,'idiot',1)">
+<div class="role good" onclick="toggleRole(this,'idiot',1)">
 
 <div class="card-content">
 
@@ -408,7 +412,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Encrenqueira -->
 
-<div class="role" onclick="toggleRole(this,'troublemaker',1)">
+<div class="role good" onclick="toggleRole(this,'troublemaker',1)">
 
 <div class="card-content">
 
@@ -429,7 +433,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Bêbado -->
 
-<div class="role" onclick="toggleRole(this,'drunk',1)">
+<div class="role good" onclick="toggleRole(this,'drunk',1)">
 
 <div class="card-content">
 
@@ -460,7 +464,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Insone -->
 
-<div class="role" onclick="toggleRole(this,'insomniac',1)">
+<div class="role good" onclick="toggleRole(this,'insomniac',1)">
 
 <div class="card-content">
 
@@ -481,7 +485,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Revelador -->
 
-<div class="role" onclick="toggleRole(this,'revealer',1)">
+<div class="role good" onclick="toggleRole(this,'revealer',1)">
 
 <div class="card-content">
 
@@ -502,7 +506,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Curador -->
 
-<div class="role" onclick="toggleRole(this,'curator',1)">
+<div class="role good" onclick="toggleRole(this,'curator',1)">
 
 <div class="card-content">
 
@@ -536,7 +540,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Caçador -->
 
-<div class="role" onclick="toggleRole(this,'hunter',1)">
+<div class="role good" onclick="toggleRole(this,'hunter',1)">
 
 <div class="card-content">
 
@@ -557,7 +561,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Tanner -->
 
-<div class="role" onclick="toggleRole(this,'tanner',1)">
+<div class="role tanner" onclick="toggleRole(this,'tanner',1)">
 
 <div class="card-content">
 
@@ -578,7 +582,7 @@ Selecione os personagens (<span id="playerCount">0</span>)
 
 <!-- Aldeão -->
 
-<div class="role" onclick="toggleRole(this,'villager',3)">
+<div class="role good" onclick="toggleRole(this,'villager',3)">
 
 <div class="card-content">
 
