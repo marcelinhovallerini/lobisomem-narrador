@@ -44,7 +44,7 @@ background-image:url("floresta.webp");
 background-size:cover;
 background-position:center;
 
-z-index:-20;
+z-index:-30;
 
 }
 
@@ -827,3 +827,4 @@ animation:pulse 1s infinite;
 50%{transform:scale(1.08)}
 100%{transform:scale(1)}
 }
+
