@@ -1121,14 +1121,16 @@ left:50%;
 
 transform:translateX(-50%);
 
-display:flex;
-flex-wrap:wrap;
+display:grid;
 
-gap:12px;
+grid-template-columns:repeat(auto-fit, minmax(55px, 1fr));
 
-justify-content:center;
+gap:10px;
 
-max-width:95vw;
+width:95vw;
+max-width:420px;
+
+justify-items:center;
 
 z-index:210;
 
@@ -1261,3 +1263,4 @@ object-fit:cover;
 object-position:50% 0%;
 
 }
+
