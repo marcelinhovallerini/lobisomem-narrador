@@ -71,6 +71,14 @@ background:rgba(0,0,0,0.5);
 
 z-index:1;
 
+transition: background 2s ease;
+
+}
+
+body.night::before{
+
+background:rgba(0,0,0,0.75);
+
 }
 
 .role,
@@ -107,9 +115,7 @@ left:0;
 width:100%;
 height:100%;
 
-background:white;
-
-opacity:0.15;
+background:rgba(255,255,255,0.15);
 
 }
 
@@ -299,6 +305,80 @@ padding-top: calc(env(safe-area-inset-top) + 6px);
 
 }
 
+#phaseMessage{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%) scale(0.92);
+
+font-size:clamp(28px,6vw,60px);
+font-weight:bold;
+
+color:white;
+
+text-align:center;
+
+opacity:0;
+
+pointer-events:none;
+
+white-space:nowrap;
+
+text-wrap:balance;
+
+z-index:250;
+
+text-shadow:
+0 0 0px rgba(255,255,255,0),
+0 0 10px rgba(0,0,0,1),
+0 0 20px rgba(0,0,0,1);
+
+transition:
+opacity 1.5s ease,
+text-shadow 1.5s ease,
+transform 1.5s ease;
+
+}
+
+#phaseMessage.show{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(1);
+
+text-shadow:
+0 0 6px rgba(255,255,255,0.7),
+0 0 18px rgba(255,255,255,0.45),
+0 0 40px rgba(0,0,0,1),
+0 0 70px rgba(0,0,0,1);
+
+}
+
+/* versão vermelha */
+
+#phaseMessage.red{
+
+color:#ff3333;
+
+text-shadow:
+0 0 0px rgba(255,0,0,0),
+0 0 10px rgba(0,0,0,1),
+0 0 20px rgba(0,0,0,1);
+
+}
+
+#phaseMessage.red.show{
+
+text-shadow:
+0 0 8px rgba(255,50,50,0.9),
+0 0 18px rgba(255,0,0,0.8),
+0 0 40px rgba(0,0,0,1),
+0 0 70px rgba(0,0,0,1);
+
+}
 
 /* GRID */
 
@@ -489,7 +569,7 @@ opacity:0;
 
 will-change: box-shadow;
 
-transition:opacity 0.2s;
+transition:opacity 0.25s;
 
 }
 
@@ -953,18 +1033,41 @@ margin-bottom:15px;
 
 #timer{
 
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%, -40%) scale(0.95);
+
 font-size:clamp(60px,18vw,160px);
 font-family:monospace;
 font-weight:bold;
+
 color:white;
 
 white-space:nowrap;
 word-break:normal;
 overflow-wrap:normal;
 
-display:none;
+opacity:0;
+
+pointer-events:none;
 
 text-shadow:0 0 14px rgba(255,0,0,0.7);
+
+transition:
+opacity 0.7s ease,
+transform 0.7s ease;
+
+}
+
+#timer.show{
+
+opacity:1;
+
+transform:translate(-50%, -50%) scale(1);
+
 }
 
 /* últimos 30 segundos */
