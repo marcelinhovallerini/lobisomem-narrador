@@ -530,19 +530,19 @@ async function startNight(){
 
 	},30000)
 
-	await wait(2000)
+	await wait(1000)
 	await play("begin")
-	await wait(2000)
+	await wait(1000)
 
 	if(selectedRoles.sentinel){
 
 	showRole("Sentinela","sentinel.jpg")
 
 	await play("sentinelWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("sentinelOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -551,14 +551,14 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg")
 
 		await play("doppelWakeUp")
-		await wait(5000)
+		await wait(4000)
 
 		if(selectedRoles.sentinel){
 
 		showRole("Doppelganger","doppelganger.jpg","Sentinela","sentinel.jpg")
 
 		await play("doppelSentinel")
-		await wait(5000)
+		await wait(4000)
 			
 		}
 
@@ -567,7 +567,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Lobisomem Alfa","alpha.jpg")
 
 		await play("doppelAlpha")
-		await wait(5000)
+		await wait(4000)
 			
 		}
 
@@ -576,7 +576,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Lobisomem Místico","mystic.jpg")
 
 		await play("doppelMystic")
-		await wait(5000)
+		await wait(4000)
 			
 		}
 
@@ -585,7 +585,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Minion","minion.jpg")
 
 		await play("doppelMinion")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -594,7 +594,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Vidente","seer.jpg")
 
 		await play("doppelSeer")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -603,7 +603,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Aprendiz de Vidente","apprentice.jpg")
 
 		await play("doppelApprentice")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -612,7 +612,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Investigador Paranormal","pi.jpg")
 
 		await play("doppelPi")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -621,7 +621,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Ladrão","robber.jpg")
 
 		await play("doppelRobber")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -630,7 +630,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Bruxa","witch.jpg")
 
 		await play("doppelWitch")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -639,7 +639,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Idiota da Vila","idiot.jpg")
 		
 		await play("doppelIdiot")
-		await wait(7000)
+		await wait(4000)
 
 		}
 
@@ -648,7 +648,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Encrenqueira","troublemaker.jpg")
 
 		await play("doppelTroublemaker")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -657,7 +657,7 @@ async function startNight(){
 		showRole("Doppelganger","doppelganger.jpg","Bêbado","drunk.jpg")
 
 		await play("doppelDrunk")
-		await wait(5000)
+		await wait(4000)
 
 		}
 
@@ -665,7 +665,7 @@ async function startNight(){
 	
 	await play("doppelOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -693,11 +693,11 @@ async function startNight(){
 		showRole("Lobisomens","werewolf.jpg")
 
 		await play("werewolfJustOne")
-		await wait(5000)
+		await wait(4000)
 
 		await play("werewolfOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -729,11 +729,11 @@ async function startNight(){
 		showRole("Lobisomens","werewolf.jpg")
 
 		await play("werewolfJustOne")
-		await wait(5000)
+		await wait(4000)
 
 		await play("werewolfOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -741,10 +741,10 @@ async function startNight(){
 
 	showRole("Lobisomem Alfa","alpha.jpg")
 	await play("alphaWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("alphaOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -752,10 +752,10 @@ async function startNight(){
 
 	showRole("Lobisomem Místico","mystic.jpg")
 	await play("mysticWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("mysticOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -775,11 +775,11 @@ async function startNight(){
 
 		}
 		
-        await wait(5000)
+        await wait(4000)
 
 		await play("minionOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -800,10 +800,10 @@ async function startNight(){
 			
 		}
 
-    	await wait(5000)
+    	await wait(4000)
 		await play("masonsOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -813,11 +813,11 @@ async function startNight(){
 		showRole("Vidente","seer.jpg")
 
 		await play("seerWakeUp")
-		await wait(5000)
+		await wait(4000)
 
 		await play("seerOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -826,10 +826,10 @@ async function startNight(){
 	showRole("Aprendiz de Vidente","apprentice.jpg")
 
 	await play("apprenticeWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("apprenticeOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -838,10 +838,10 @@ async function startNight(){
 	showRole("Investigador Paranormal","pi.jpg")
 
 	await play("piWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("piOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -851,11 +851,11 @@ async function startNight(){
 		showRole("Ladrão","robber.jpg")
 
 		await play("robberWakeUp")
-		await wait(5000)
+		await wait(4000)
 
 		await play("robberOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -864,10 +864,10 @@ async function startNight(){
 	showRole("Bruxa","witch.jpg")
 
 	await play("witchWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("witchOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -876,10 +876,10 @@ async function startNight(){
 	showRole("Idiota","idiot.jpg")
 
 	await play("idiotWakeUp")
-	await wait(5000)
+	await wait(4000)
 	await play("idiotOut")
 	hideRole()
-	await wait(2000)
+	await wait(1000)
 
 	}
 
@@ -888,11 +888,11 @@ async function startNight(){
 		showRole("Encrenqueira","troublemaker.jpg")
 
 		await play("troublemakerWakeUp")
-		await wait(5000)
+		await wait(4000)
 
 		await play("troublemakerOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -902,11 +902,11 @@ async function startNight(){
 		showRole("Bêbado","drunk.jpg")
 
 		await play("drunkWakeUp")
-		await wait(5000)
+		await wait(4000)
 
 		await play("drunkOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 	}
 
@@ -916,22 +916,22 @@ async function startNight(){
 		showRole("Insone","insomniac.jpg")
 
 		await play("insomniacWakeUp")
-		await wait(5000)
+		await wait(4000)
 
 		await play("insomniacOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 		if(selectedRoles.doppelganger){
 
 			showRole("Doppelganger","doppelganger.jpg","Insone","insomniac.jpg")
 
 			await play("doppelInsomniac")
-			await wait(5000)
+			await wait(4000)
 			
 			await play("doppelInsomniacOut")
 			hideRole()
-			await wait(2000)
+			await wait(1000)
 
 		}
 
@@ -942,21 +942,21 @@ async function startNight(){
 		showRole("Revelador","revealer.jpg")
 
 		await play("revealerWakeUp")
-		await wait(5000)
+		await wait(4000)
 		await play("revealerOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 		if(selectedRoles.doppelganger){
 
 			showRole("Doppelganger","doppelganger.jpg","Revelador","revealer.jpg")
 
 			await play("doppelRevealer")
-			await wait(5000)
+			await wait(4000)
 			
 			await play("doppelRevealerOut")
 			hideRole()
-			await wait(2000)
+			await wait(1000)
 
 		}
 
@@ -967,21 +967,21 @@ async function startNight(){
 		showRole("Curador","curator.jpg")
 
 		await play("curatorWakeUp")
-		await wait(5000)
+		await wait(4000)
 		await play("curatorOut")
 		hideRole()
-		await wait(2000)
+		await wait(1000)
 
 		if(selectedRoles.doppelganger){
 
 			showRole("Doppelganger","doppelganger.jpg","Curador","curator.jpg")
 
 			await play("doppelCurator")
-			await wait(5000)
+			await wait(4000)
 			
 			await play("doppelCuratorOut")
 			hideRole()
-			await wait(2000)
+			await wait(1000)
 
 		}
 
@@ -1009,7 +1009,7 @@ async function startNight(){
 async function discussionFinished(){
 
 	await play("discussionEnd")
-	await wait(2000)
+	await wait(1000)
 	await play("vote")
 
 }
