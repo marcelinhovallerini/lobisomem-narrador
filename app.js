@@ -1113,7 +1113,7 @@ async function startNight(){
 
 	showTimer()
 
-	startTimer(5);
+	startTimer(300);
 	
 
 }
