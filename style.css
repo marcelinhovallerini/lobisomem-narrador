@@ -314,7 +314,7 @@ left:50%;
 
 transform:translate(-50%,-50%) scale(0.92);
 
-font-size:clamp(28px,6vw,60px);
+font-size:clamp(40px,12vw,80px);
 font-weight:bold;
 
 color:white;
