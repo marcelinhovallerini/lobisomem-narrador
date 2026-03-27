@@ -272,6 +272,78 @@ function hideRole(){
 
 }
 
+const doppelImmediateRoles = [
+"sentinel",
+"alpha",
+"mystic",
+"seer",
+"apprentice",
+"pi",
+"robber",
+"witch",
+"idiot",
+"troublemaker",
+"drunk"
+]
+
+function getDoppelImmediateOptions(){
+
+	const roles = []
+
+	doppelImmediateRoles.forEach(role=>{
+		if(selectedRoles[role]){
+			roles.push(role)
+		}
+	})
+
+	return roles
+
+}
+
+function showDoppelImmediateOptions(){
+
+	const container = document.getElementById("doppelOptions")
+	container.innerHTML = ""
+
+	const roles = getDoppelImmediateOptions()
+
+	if(roles.length === 0) return
+
+	// 🔥 TEXTO
+	const title = document.createElement("div")
+	title.className = "doppel-title"
+	title.textContent = "Se você viu um desses papéis, faça sua ação agora"
+
+	container.appendChild(title)
+
+	const roleNamesPT = {
+		sentinel:"Sentinela",
+		alpha:"Alfa",
+		mystic:"Místico",
+		seer:"Vidente",
+		apprentice:"Aprendiz",
+		pi:"Paranormal",
+		robber:"Ladrão",
+		witch:"Bruxa",
+		idiot:"Idiota",
+		troublemaker:"Encrenqueira",
+		drunk:"Bêbado"
+	}
+
+	roles.forEach(role=>{
+
+		const el = document.createElement("div")
+		el.className = "card"
+
+		el.textContent = roleNamesPT[role] || role
+
+		container.appendChild(el)
+
+	})
+
+	container.style.display = "flex"
+}
+
 let forestA = new Audio("floresta.mp3")
 let forestB = new Audio("floresta.mp3")
 
@@ -594,21 +666,21 @@ async function startNight(){
 
 	},30000)
 
-	await wait(1000)
+	await wait(500)
 	await play("begin")
 
 	hidePhaseMessage()
-	await wait(1000)
+	await wait(500)
 
 	if(selectedRoles.sentinel){
 
 	showRole("Sentinela","sentinel.jpg")
 
 	await play("sentinelWakeUp")
-	await wait(4000)
+	await wait(3000)
 	await play("sentinelOut")
 	hideRole()
-	await wait(1000)
+	await wait(500)
 
 	}
 
@@ -616,232 +688,73 @@ async function startNight(){
 
 		showRole("Doppelganger","doppelganger.jpg")
 
+		showDoppelImmediateOptions()
+
 		await play("doppelWakeUp")
-		await wait(4000)
 
-		if(selectedRoles.sentinel){
+		await wait(7000)
 
-		showRole("Doppelganger","doppelganger.jpg","Sentinela","sentinel.jpg")
-
-		await play("doppelSentinel")
-		await wait(4000)
-			
-		}
-
-		if(selectedRoles.alpha){
-
-		showRole("Doppelganger","doppelganger.jpg","Lobisomem Alfa","alpha.jpg")
-
-		await play("doppelAlpha")
-		await wait(4000)
-			
-		}
-
-		if(selectedRoles.mystic){
-
-		showRole("Doppelganger","doppelganger.jpg","Lobisomem Místico","mystic.jpg")
-
-		await play("doppelMystic")
-		await wait(4000)
-			
-		}
-
-		if(selectedRoles.minion){
-
-		showRole("Doppelganger","doppelganger.jpg","Minion","minion.jpg")
-
-		await play("doppelMinion")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.seer){
-
-		showRole("Doppelganger","doppelganger.jpg","Vidente","seer.jpg")
-
-		await play("doppelSeer")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.apprentice){
-
-		showRole("Doppelganger","doppelganger.jpg","Aprendiz de Vidente","apprentice.jpg")
-
-		await play("doppelApprentice")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.pi){
-
-		showRole("Doppelganger","doppelganger.jpg","Investigador Paranormal","pi.jpg")
-
-		await play("doppelPi")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.robber){
-
-		showRole("Doppelganger","doppelganger.jpg","Ladrão","robber.jpg")
-
-		await play("doppelRobber")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.witch){
-
-		showRole("Doppelganger","doppelganger.jpg","Bruxa","witch.jpg")
-
-		await play("doppelWitch")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.idiot){
-
-		showRole("Doppelganger","doppelganger.jpg","Idiota da Vila","idiot.jpg")
+		document.getElementById("doppelOptions").style.display = "none"
 		
-		await play("doppelIdiot")
-		await wait(4000)
 
-		}
+			if(selectedRoles.minion){
 
-		if(selectedRoles.troublemaker){
+			showRole("Doppelganger","doppelganger.jpg","Minion","minion.jpg")
 
-		
-		showRole("Doppelganger","doppelganger.jpg","Encrenqueira","troublemaker.jpg")
-
-		await play("doppelTroublemaker")
-		await wait(4000)
-
-		}
-
-		if(selectedRoles.drunk){
-
-		showRole("Doppelganger","doppelganger.jpg","Bêbado","drunk.jpg")
-
-		await play("doppelDrunk")
-		await wait(4000)
-
-		}
-
-	showRole("Doppelganger","doppelganger.jpg")
+			await play("doppelMinion")
+			await wait(3000)
 	
-	await play("doppelOut")
-	hideRole()
-	await wait(1000)
+			}
+
+
+		showRole("Doppelganger","doppelganger.jpg")
+	
+		await play("doppelOut")
+		hideRole()
+		await wait(500)
 
 	}
 
-	if(selectedRoles.doppelganger){
+	if(
+ 	(selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
+ 	!selectedRoles.dream
+	){
 
-		if(
- 		(selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
- 		!selectedRoles.dream
-		){
+		howl.currentTime = 0
+		howl.volume = 1
+		howl.play()
 
-			howl.currentTime = 0
-			howl.volume = 1
-			howl.play()
+		showRole("Lobisomens","werewolf.jpg")
 
-			showRole("Lobisomens","werewolf.jpg")
+		await play("werewolfWakeUp")
 
-			await play("werewolfWakeUp")
+		await play("werewolfJustOne")
+		await wait(4000)
 
-			showRole("Doppelganger","doppelganger.jpg","Lobisomem","werewolf.jpg")
+		await play("werewolfOut")
+		hideRole()
+		await wait(500)
 
-			await play("doppelWerewolf")
+	}
 
-			showRole("Lobisomens","werewolf.jpg")
+	if(
+ 	(selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
+ 	selectedRoles.dream
+	){
 
-			await play("werewolfJustOne")
-			await wait(4000)
+		howl.currentTime = 0
+		howl.volume = 1
+		howl.play()
 
-			await play("werewolfOut")
-			hideRole()
-			await wait(1000)
+		showRole("Lobisomens","werewolf.jpg")
+		await play("werewolfDream")
 
-		}
+		await play("werewolfJustOne")
+		await wait(4000)
 
-		if(
- 		(selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
- 		selectedRoles.dream
-		){
-
-			howl.currentTime = 0
-			howl.volume = 1
-			howl.play()
-
-			showRole("Lobisomens","werewolf.jpg")
-			await play("werewolfWakeUp")
-
-			showRole("Doppelganger","doppelganger.jpg","Lobisomem","werewolf.jpg")
-			await play("doppelWerewolf")
-
-			showRole("Sonhos","dream.jpg")
-			await play("werewolfDream")
-
-			showRole("Doppelganger","doppelganger.jpg","Lobisomem dos Sonhos","dream.jpg")
-			await play("doppelDream")
-
-			showRole("Lobisomens","werewolf.jpg")
-
-			await play("werewolfJustOne")
-			await wait(4000)
-
-			await play("werewolfOut")
-			hideRole()
-			await wait(1000)
-
-		}
-
-	}else{
-
-		if(
- 		(selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
- 		!selectedRoles.dream
-		){
-
-			howl.currentTime = 0
-			howl.volume = 1
-			howl.play()
-
-			showRole("Lobisomens","werewolf.jpg")
-
-			await play("werewolfWakeUp")
-
-			await play("werewolfJustOne")
-			await wait(4000)
-
-			await play("werewolfOut")
-			hideRole()
-			await wait(1000)
-
-		}
-
-		if(
- 		(selectedRoles.werewolf || selectedRoles.alpha || selectedRoles.mystic) &&
- 		selectedRoles.dream
-		){
-
-			howl.currentTime = 0
-			howl.volume = 1
-			howl.play()
-
-			showRole("Lobisomens","werewolf.jpg")
-			await play("werewolfDream")
-
-			await play("werewolfJustOne")
-			await wait(4000)
-
-			await play("werewolfOut")
-			hideRole()
-			await wait(1000)
-
-		}
+		await play("werewolfOut")
+		hideRole()
+		await wait(500)
 
 	}
 
@@ -849,10 +762,10 @@ async function startNight(){
 
 	showRole("Lobisomem Alfa","alpha.jpg")
 	await play("alphaWakeUp")
-	await wait(4000)
+	await wait(3000)
 	await play("alphaOut")
 	hideRole()
-	await wait(1000)
+	await wait(500)
 
 	}
 
@@ -860,10 +773,10 @@ async function startNight(){
 
 	showRole("Lobisomem Místico","mystic.jpg")
 	await play("mysticWakeUp")
-	await wait(4000)
+	await wait(3000)
 	await play("mysticOut")
 	hideRole()
-	await wait(1000)
+	await wait(500)
 
 	}
 
@@ -882,11 +795,11 @@ async function startNight(){
 		}
 
 		showRole("Minion","minion.jpg")
-		await wait(4000)
+		await wait(3000)
 
 		await play("minionOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -897,19 +810,10 @@ async function startNight(){
 
 		await play("masonsWakeUp")
 
-		if(selectedRoles.doppelganger){
-
-			showRole("Doppelganger","doppelganger.jpg","Maçom","mason.jpg")
-			await play("doppelMason")
-			
-		}
-
-		showRole("Maçom","mason.jpg")
-
-    		await wait(4000)
+    		await wait(3000)
 		await play("masonsOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -923,7 +827,7 @@ async function startNight(){
 
 		await play("seerOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -935,7 +839,7 @@ async function startNight(){
 		await wait(4000)
 		await play("apprenticeOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -947,7 +851,7 @@ async function startNight(){
 		await wait(4000)
 		await play("piOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -961,7 +865,7 @@ async function startNight(){
 
 		await play("robberOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -973,7 +877,7 @@ async function startNight(){
 		await wait(4000)
 		await play("witchOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -985,7 +889,7 @@ async function startNight(){
 		await wait(4000)
 		await play("idiotOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -998,7 +902,7 @@ async function startNight(){
 
 		await play("troublemakerOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -1012,7 +916,7 @@ async function startNight(){
 
 		await play("drunkOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 	}
 
@@ -1022,22 +926,22 @@ async function startNight(){
 		showRole("Insone","insomniac.jpg")
 
 		await play("insomniacWakeUp")
-		await wait(4000)
+		await wait(3000)
 
 		await play("insomniacOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 		if(selectedRoles.doppelganger){
 
 			showRole("Doppelganger","doppelganger.jpg","Insone","insomniac.jpg")
 
 			await play("doppelInsomniac")
-			await wait(4000)
+			await wait(3000)
 			
 			await play("doppelInsomniacOut")
 			hideRole()
-			await wait(1000)
+			await wait(500)
 
 		}
 
@@ -1048,21 +952,21 @@ async function startNight(){
 		showRole("Revelador","revealer.jpg")
 
 		await play("revealerWakeUp")
-		await wait(4000)
+		await wait(3000)
 		await play("revealerOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 		if(selectedRoles.doppelganger){
 
 			showRole("Doppelganger","doppelganger.jpg","Revelador","revealer.jpg")
 
 			await play("doppelRevealer")
-			await wait(4000)
+			await wait(3000)
 			
 			await play("doppelRevealerOut")
 			hideRole()
-			await wait(1000)
+			await wait(500)
 
 		}
 
@@ -1073,21 +977,21 @@ async function startNight(){
 		showRole("Curador","curator.jpg")
 
 		await play("curatorWakeUp")
-		await wait(4000)
+		await wait(3000)
 		await play("curatorOut")
 		hideRole()
-		await wait(1000)
+		await wait(500)
 
 		if(selectedRoles.doppelganger){
 
 			showRole("Doppelganger","doppelganger.jpg","Curador","curator.jpg")
 
 			await play("doppelCurator")
-			await wait(4000)
+			await wait(3000)
 			
 			await play("doppelCuratorOut")
 			hideRole()
-			await wait(1000)
+			await wait(500)
 
 		}
 
@@ -1125,7 +1029,7 @@ async function discussionFinished(){
 	hideTimer()
 	showPhaseMessage("Fim da discussão","red")
 	await play("discussionEnd")
-	await wait(1000)
+	await wait(500)
 	await play("vote")
 
 }
